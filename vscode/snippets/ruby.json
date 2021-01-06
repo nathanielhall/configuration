@@ -1,0 +1,12 @@
+{
+  // Place your snippets for ruby here.
+
+  "migration": {
+    "prefix": "Migration:New",
+    "description": "Start a new migration",
+    "body": [
+      "#!/usr/local/rvm/wrappers/ruby-2.6.5/ruby",
+      "require_relative '../../config/environment'"
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "Test:enzyme": {
+    "prefix": "Test:enzyme",
+    "description": "Test setup",
+    "body": [
+      "import React from 'react'",
+      "import { mount } from 'enzyme'",
+      "import {${TM_FILENAME_BASE/(?:^|_)([a-z])|(\\.test)|/${1:/upcase}/g} } from './${TM_FILENAME_BASE/[\\.].*//}'",
+      "",
+      "const setup = (propOverrides) => {",
+      "\tconst props = {",
+      "\t// define props here",
+      "\t$0",
+      "\t...propOverrides",
+      "\t}",
+      "\tconst wrapper = mount(<${TM_FILENAME_BASE/(?:^|_)([a-z])|(\\.test)|/${1:/upcase}/g} {...props} />)",
+      "\treturn {",
+      "\t\tprops,",
+      "\t\twrapper",
+      "\t}",
+      "}",
+      "",
+      "",
+      "test('<${TM_FILENAME_BASE/(?:^|_)([a-z])|(\\.test)|/${1:/upcase}/g} /> renders', () => {",
+      "\tconst { wrapper } = setup()",
+      "\texpect(wrapper.exists()).toBeTruthy()",
+      "})",
+      "",
+      "test.todo('more tests')"
+    ]
+  },
+  "effect": {
+    "prefix": "effect",
+    "description": "UseEffect template",
+    "body": ["useEffect(() => {", "\t", "}, [$0])"]
+  },
+  "import:proptypes": {
+    "prefix": "ptypes",
+    "description": "import PropTypes",
+    "body": ["import PropTypes from 'prop-types'; "]
+  },
+  "log": {
+    "prefix": "log",
+    "description": "console log statement",
+    "body": ["'console.log(`$0);'"]
+  }
+}

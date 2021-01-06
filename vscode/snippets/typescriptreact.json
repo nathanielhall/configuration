@@ -1,0 +1,71 @@
+{
+  "Component": {
+    "prefix": "Component",
+    "description": "component",
+    "body": [
+      "import React, { FC } from 'react'",
+      "",
+      "export type ${TM_FILENAME_BASE/(?:^|-)([a-z])|/${1:/upcase}/g}Props = { }",
+      "",
+      "export const ${TM_FILENAME_BASE/(?:^|-)([a-z])|/${1:/upcase}/g}: FC<${TM_FILENAME_BASE/(?:^|-)([a-z])|/${1:/upcase}/g}Props> = ({ }) => (",
+      "\t<$0",
+      ")",
+      ""
+    ]
+  },
+  "Component:return": {
+    "prefix": "Component:return",
+    "description": "component with return",
+    "body": [
+      "import React, { FC } from 'react'",
+      "",
+      "export type ${TM_FILENAME_BASE/(?:^|-)([a-z])|/${1:/upcase}/g}Props = { }",
+      "",
+      "export const ${TM_FILENAME_BASE/(?:^|-)([a-z])|/${1:/upcase}/g}: FC<${TM_FILENAME_BASE/(?:^|-)([a-z])|/${1:/upcase}/g}Props> = ({ }) => {",
+      "\t$0",
+      "\treturn()",
+      "}",
+      ""
+    ]
+  },
+  "Test:enzyme": {
+    "prefix": "Test:enzyme",
+    "description": "Test setup",
+    "body": [
+      "import React from 'react'",
+      "import { mount, ReactWrapper } from 'enzyme'",
+      "import {${TM_FILENAME_BASE/(?:^|-)([a-z])|(\\.test)|/${1:/upcase}/g}, ${TM_FILENAME_BASE/(?:^|-)([a-z])|(\\.test)|/${1:/upcase}/g}Props } from './${TM_FILENAME_BASE/[\\.].*//}'",
+      "",
+      "const setup = (propOverrides?: Partial<${TM_FILENAME_BASE/(?:^|-)([a-z])|(\\.test)|/${1:/upcase}/g}Props>) => {",
+      "\tconst props = {",
+      "\t// define props here",
+      "\t$0",
+      "\t...propOverrides",
+      "\t}",
+      "\tconst wrapper: ReactWrapper = mount(<${TM_FILENAME_BASE/(?:^|-)([a-z])|(\\.test)|/${1:/upcase}/g} {...props} />)",
+      "\treturn {",
+      "\t\tprops,",
+      "\t\twrapper",
+      "\t}",
+      "}",
+      "",
+      "",
+      "test('<${TM_FILENAME_BASE/(?:^|-)([a-z])|(\\.test)|/${1:/upcase}/g} />', () => {",
+      "\tconst { wrapper } = setup()",
+      "\texpect(wrapper.exists()).toBeTruthy()",
+      "})",
+      "",
+      "test.todo('more tests')"
+    ]
+  },
+  "Test:debug": {
+    "prefix": "test:debug",
+    "description": "console.log(${1: VARIABLE}.debug())",
+    "body": ["console.log(${1: VARIABLE}.debug())"]
+  },
+  "JSX:debug": {
+    "prefix": "jsx:debug",
+    "description": "pre statement for debugging",
+    "body": ["<pre>{JSON.stringify(${VARIABLE}, null, 2)}</pre>"]
+  }
+}

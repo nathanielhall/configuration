@@ -1,0 +1,32 @@
+{
+	"Test:enzyme": {
+		"prefix": "Test:enzyme",
+		"description": "Test setup",
+		"body": [
+			"import React from 'react'",
+			"import { mount } from 'enzyme'",
+			"import {${TM_FILENAME_BASE/(?:^|-)([a-z])|(\\.test)|/${1:/upcase}/g}, ${TM_FILENAME_BASE/(?:^|-)([a-z])|(\\.test)|/${1:/upcase}/g}Props } from './${TM_FILENAME_BASE/[\\.].*//}'",
+			"",
+			"const setup = (propOverrides) => {",
+			"\tconst props = {",
+			"\t// define props here",
+			"\t$0",
+			"\t...propOverrides",
+			"\t}",
+			"\tconst wrapper = mount(<${TM_FILENAME_BASE/(?:^|-)([a-z])|(\\.test)|/${1:/upcase}/g} {...props} />)",
+			"\treturn {",
+			"\t\tprops,",
+			"\t\twrapper",
+			"\t}",
+			"}",
+			"",
+			"",
+			"test('<${TM_FILENAME_BASE/(?:^|-)([a-z])|(\\.test)|/${1:/upcase}/g} />', () => {",
+			"\tconst { wrapper } = setup()",
+			"\texpect(wrapper.exists()).toBeTruthy()",
+			"})",
+			"",
+			"test.todo('more tests')"
+		]
+	}
+}
