@@ -36,7 +36,7 @@ echo "node --version: $(node --version)"
 echo "npm --version: $(npm --version)"
 
 echo "installing apps with brew cask"
-brew cask install alfred google-chrome visual-studio-code slack spectacle 
+brew install --cask alfred google-chrome visual-studio-code slack spectacle postman
 
 # echo "Generating an RSA token for GitHub"
 # mkdir -p ~/.ssh
