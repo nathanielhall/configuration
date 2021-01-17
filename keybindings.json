@@ -1,62 +1,17 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
   {
-    "key": "ctrl+shift+enter",
-    "command": "editor.action.insertLineBefore",
-    "when": "editorTextFocus && !editorReadonly"
+    "key": "ctrl+shift+f",
+    "command": "workbench.action.terminal.focus"
   },
   {
-    "key": "shift+cmd+enter",
-    "command": "-editor.action.insertLineBefore",
-    "when": "editorTextFocus && !editorReadonly"
-  },
-  {
-    "key": "ctrl+enter",
-    "command": "editor.action.insertLineAfter",
-    "when": "editorTextFocus && !editorReadonly"
-  },
-  {
-    "key": "cmd+enter",
-    "command": "-editor.action.insertLineAfter",
-    "when": "editorTextFocus && !editorReadonly"
+    "key": "ctrl+shift+f",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus"
   },
   {
     "key": "ctrl+shift+l",
     "command": "workbench.files.action.showActiveFileInExplorer"
-  },
-  {
-    "key": "ctrl+v",
-    "command": "expandLineSelection",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "cmd+l",
-    "command": "-expandLineSelection",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "shift+cmd+l",
-    "command": "-editor.action.selectHighlights",
-    "when": "editorFocus"
-  },
-  {
-    "key": "shift+cmd+l",
-    "command": "-addCursorsAtSearchResults",
-    "when": "fileMatchOrMatchFocus && searchViewletVisible"
-  },
-  {
-    "key": "shift+cmd+l",
-    "command": "-selectAllSearchEditorMatches",
-    "when": "inSearchEditor"
-  },
-  {
-    "key": "shift+cmd+l",
-    "command": "editor.action.selectHighlights"
-  },
-  {
-    "key": "cmd+down",
-    "command": "-cursorBottom",
-    "when": "textInputFocus"
   },
   {
     "key": "ctrl+alt+n",
