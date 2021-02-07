@@ -1,7 +1,5 @@
 # Configuration files and more
-
-> This repo provides a central location for configuration files, settings,
-> keybindings, mac setup, and more.
+> This repo provides a central location for my configuration files; vscode, tmux, vim, zsh, and mac setup.
 
 ## Todo
 
