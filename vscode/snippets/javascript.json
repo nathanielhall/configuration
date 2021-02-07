@@ -1,6 +1,23 @@
 {
-  "Test:enzyme": {
-    "prefix": "Test:enzyme",
+  "console.log": {
+    "prefix": "cl",
+    "body": "console.log(${1:'here'})$0"
+  },
+  "console.log('var', var)": {
+    "prefix": "vl",
+    "body": "console.log('$1', $1)$0"
+  },
+  "console.log({var})": {
+    "prefix": "ol",
+    "body": "console.log({$1})$0"
+  },
+  "debug with PRE": {
+    "prefix": "debugpre",
+    "description": "show debug values inside <pre>",
+    "body": ["<pre>{JSON.stringify($1, null, 2)}</pre>"]
+  },
+  "new test file": {
+    "prefix": "newtest",
     "description": "Test setup",
     "body": [
       "import React from 'react'",
@@ -34,14 +51,79 @@
     "description": "UseEffect template",
     "body": ["useEffect(() => {", "\t", "}, [$0])"]
   },
-  "import:proptypes": {
-    "prefix": "ptypes",
+
+  "import proptypes": {
+    "prefix": "ipt",
     "description": "import PropTypes",
     "body": ["import PropTypes from 'prop-types'; "]
   },
-  "log": {
-    "prefix": "log",
-    "description": "console log statement",
-    "body": ["'console.log(`$0);'"]
+
+  "import React": {
+    "prefix": "ir",
+    "body": ["import React from 'react'\n"]
+  },
+  "React.useState": {
+    "prefix": "us",
+    "body": [
+      "const [${1}, set${1/(^[a-zA-Z])(.*)/${1:/upcase}${2}/}] = React.useState(${2:initial${1/(^[a-zA-Z])(.*)/${1:/upcase}${2}/}})$0"
+    ]
+  },
+  "React.useEffect": {
+    "prefix": "uf",
+    "body": ["React.useEffect(() => {", "  $0", "}, [])"]
+  },
+  "React.useReducer": {
+    "prefix": "ur",
+    "body": [
+      "const [state, dispatch] = React.useReducer(${1:someReducer}, {",
+      "  $0",
+      "})"
+    ]
+  },
+  "React.useRef": {
+    "prefix": "urf",
+    "body": ["const ${1:someRef} = React.useRef($2)$0"]
+  },
+  "React Class Component": {
+    "prefix": "rcc",
+    "body": [
+      "class $1 extends React.Component {",
+      "  render() {",
+      "    $0",
+      "  }",
+      "}"
+    ]
+  },
+  "React: componentWillMount": {
+    "prefix": "cwm",
+    "body": ["componentWillMount() {", "  $0", "}"]
+  },
+  "React: componentDidMount": {
+    "prefix": "cdm",
+    "body": ["componentDidMount() {", "  $0", "}"]
+  },
+  "React: componentWillReceiveProps": {
+    "prefix": "cwrp",
+    "body": ["componentWillReceiveProps(nextProps) {", "  $0", "}"]
+  },
+  "React: componentWillUpdate": {
+    "prefix": "cwu",
+    "body": ["componentWillUpdate(nextProps, nextState) {", "  $0", "}"]
+  },
+  "React: componentDidUpdate": {
+    "prefix": "cdu",
+    "body": ["componentDidUpdate(prevProps, prevState) {", "  $0", "}"]
+  },
+  "React: componentWillUnmount": {
+    "prefix": "cwu",
+    "body": ["componentWillUnmount() {", "  $0", "}"]
+  },
+  "Jest test": {
+    "prefix": "test",
+    "body": ["test('$1', () => {", "  $0", "})"]
+  },
+  "Jest async test": {
+    "prefix": "atest",
+    "body": ["test('$1', async () => {", "  $0", "})"]
   }
 }
