@@ -1,0 +1,7 @@
+[user]
+    name = Nathan Hall
+	email = nathaniel.hall@gmail.com
+[alias]
+  b = checkout -b
+  co = checkout
+  unstage = reset --soft HEAD
