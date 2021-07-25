@@ -1,22 +1,12 @@
 {
-  // Presentations
-  /**
-  "editor.fontSize": 18,
-  "terminal.integrated.fontSize": 18,
-  "editor.cursorBlinking": "solid",
-  /**/
-
-  /** My Personal Settings */
-  "editor.fontFamily": "fira code",
-  // TODO: try 'Dank Mono'...
-  // "editor.letterSpacing": 0.5,
+  "editor.fontSize": 14,
+  "editor.fontFamily": "'Dank Mono', 'fira code'",
   "editor.quickSuggestionsDelay": 30,
   "editor.wordBasedSuggestions": false,
   "editor.suggest.localityBonus": true,
   "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.fontLigatures": true,
   "editor.snippetSuggestions": "top",
-  // "editor.rulers": [80],
   "editor.lightbulb.enabled": false,
   "editor.glyphMargin": false,
   "workbench.colorTheme": "Cobalt2",
@@ -33,8 +23,8 @@
   "files.insertFinalNewline": false,
 
   /** Terminal  */
-  // "terminal.external.osxExec": "iTerm.app",
-  // "terminal.integrated.shell.osx": "/bin/zsh",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontFamily": "'Dank Mono', 'fira code'",
 
   /** VIM */
   "vim.insertModeKeyBindings": [
@@ -50,7 +40,6 @@
     "**/node_modules/**",
     "**/bower_components/**",
     "**/dist/**",
-    // "**/build/**",   // commented for Planner
     "**/.vscode/**",
     "**/.github/**",
     "**/_output/**",
