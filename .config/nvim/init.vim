@@ -2,8 +2,12 @@ set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 source ~/.vimrc
 
+
+set termguicolors
+
+
 " ignore files
-set wildignore+=*_build/*
+" set wildignore+=*_build/*
 set wildignore+=**/coverage/*
 set wildignore+=**/node_modules/*
 set wildignore+=**/.git/*
@@ -17,9 +21,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-eslint'
 Plug 'neoclide/coc-prettier'
 
-Plug 'scrooloose/nerdtree'
+"Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
 Plug 'theprimeagen/vim-be-good'
-Plug 'gruvbox-community/gruvbox'
 
 # Telescope
 Plug 'nvim-lua/popup.nvim'
@@ -28,8 +32,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'  
 
 # test these
-Plug 'tpope/vim-fugitive'
-Plug 'hrsh7th/nvim-compe'
+" Plug 'hrsh7th/nvim-compe'
 
 # javascript / jsx
 Plug 'pangloss/vim-javascript'
@@ -38,8 +41,23 @@ Plug 'maxmellon/vim-jsx-pretty'
 " typescript / jsx
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+
+" 
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+"
+Plug 'gruvbox-community/gruvbox'
+Plug 'herrbischoff/cobalt2.vim'
+"
+" 
+Plug 'tpope/vim-fugitive'
 call plug#end()
+
+
+colorscheme cobalt2
+
+
 
 let mapleader = " "
 
@@ -47,14 +65,15 @@ lua require("theprimeagen")
 
 inoremap jj <ESC> 
 
-nmap <C-n> :NERDTreeToggle<CR>
-let g:NERDTreeChDirMode=2
-let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__', 'node_modules']
-let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
-let g:NERDTreeShowBookmarks=1
-let g:nerdtree_tabs_focus_on_files=1
-let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
-let g:NERDTreeShowHidden=1
+
+"nmap <C-n> :NERDTreeToggle<CR>
+"let g:NERDTreeChDirMode=2
+"let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__', 'node_modules'] let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
+"let g:NERDTreeShowBookmarks=1
+"let g:nerdtree_tabs_focus_on_files=1
+"let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
+"let g:NERDTreeShowHidden=1
+"nmap ,n :NERDTreeFind<CR>
 
 nnoremap Y y$
 inoremap , ,<c-g>u
@@ -82,9 +101,29 @@ noremap <leader>j :m .+1<CR>==
 xnoremap <leader>p "_dP
 nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
 
+" Vim Split remaps
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+set splitbelow
+set splitright
+
+" nnoremap <Leader>w <C-w>
+nnoremap ,w <C-w>
+
+
+nnoremap <Leader>+ :vertical resize +5<CR>
+nnoremap <Leader>- :vertical resize -5<CR>
+noremap <Leader>rp :resize 100<CR>
+
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
+nnoremap <leader>x :!chmod +x %<CR>
+
+" TODO: Remove coc and replace with nvim-lsp client
 " coc conig
 let g:coc_global_extensions = [
   \ 'coc-tsserver'
@@ -131,8 +170,6 @@ nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
 
 nmap <leader>do <Plug>(coc-codeaction)
-
-
 
 
 
