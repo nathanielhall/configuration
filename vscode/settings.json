@@ -27,13 +27,106 @@
   "terminal.integrated.fontFamily": "'Dank Mono', 'fira code'",
 
   /** VIM */
+  "vim.leader": "<space>",
   "vim.insertModeKeyBindings": [
     {
       "before": ["j", "j"],
       "after": ["<Esc>"]
     }
   ],
+  "vim.visualModeKeyBindings": [
+    {
+        "before": ["<leader>", "c"],
+        "commands": [
+            "editor.action.copyLinesDownAction"
+        ],
+        "when": "editorTextFocus && !editorReadonly"
+    }
+  ],
+  "vim.normalModeKeyBindings": [
+    {
+        "before": ["<leader>", "p"],
+        "commands": [
+            "workbench.action.showCommands"
+        ]
+    },
+    {
+        "before": ["<leader>", "s"],
+        "commands": [
+            "workbench.action.findInFiles"
+        ]
+    },
+    {
+        "before": ["<leader>", "t"],
+        "commands": [
+            "workbench.action.terminal.focus"
+        ]
+    },
+    {
+        "before": ["<leader>", "e"],
+        "commands": [
+            "workbench.view.explorer"
+        ],
+        "when": "viewContainer.workbench.view.explorer.enabled"
+    },
+    {
+        "before": [",", "n"],
+        "commands": [
+            "workbench.action.toggleSidebarVisibility"
+        ],
+        "when": "!viewContainer.workbench.view.explorer.enabled"
+    },
+
+    {
+        "before": ["<C-h>"],
+        "commands": [
+            "workbench.action.navigateLeft"
+        ]
+    },
+    {
+        "before": ["<C-j>"],
+        "commands": [
+            "workbench.action.navigateDown"
+        ]
+    },
+    {
+        "before": ["<C-k>"],
+        "commands": [
+            "workbench.action.navigateUp"
+        ]
+    },
+    {
+        "before": ["<C-l>"],
+        "commands": [
+            "workbench.action.navigateRight"
+        ]
+    },
+    {
+        "before": [",", "w", "s"],
+        "commands": [
+            "workbench.action.splitEditorDown"
+        ]
+    },
+    {
+        "before": [",", "w", "v" ],
+        "commands": [
+            "workbench.action.splitEditorRight"
+        ]
+    },
+    {
+        "before": ["<leader>", "g"],
+        "commands": [
+            "workbench.view.scm"
+        ],
+        "when": "workbench.scm.active"
+    }
+  ],
   "editor.lineNumbers": "relative",
+
+
+
+
+
 
   /** TODO Highlight */
   "todohighlight.exclude": [
