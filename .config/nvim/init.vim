@@ -1,3 +1,4 @@
+
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 source ~/.vimrc
@@ -5,15 +6,14 @@ source ~/.vimrc
 
 set termguicolors
 
-
-" ignore files
-" set wildignore+=*_build/*
+set wildmode=longest,list,full
+set wildmenu
+"
+" Ignore Files
 set wildignore+=**/coverage/*
 set wildignore+=**/node_modules/*
 set wildignore+=**/.git/*
 
-" always uses spaces instead of tab characters
-set expandtab
 
 
 call plug#begin('~/.vim/plugged')
@@ -21,20 +21,22 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-eslint'
 Plug 'neoclide/coc-prettier'
 
-"Plug 'scrooloose/nerdtree'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'theprimeagen/vim-be-good'
 
-# Telescope
+" Telescope
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'  
 
-# test these
+" test these
 " Plug 'hrsh7th/nvim-compe'
 
-# javascript / jsx
+" javascript / jsx
 Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 
@@ -47,7 +49,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 "
-Plug 'gruvbox-community/gruvbox'
 Plug 'herrbischoff/cobalt2.vim'
 "
 " 
@@ -57,23 +58,21 @@ call plug#end()
 
 colorscheme cobalt2
 
-
-
 let mapleader = " "
 
-lua require("theprimeagen")
+lua require("nathanielhall")
 
 inoremap jj <ESC> 
 
-
-"nmap <C-n> :NERDTreeToggle<CR>
-"let g:NERDTreeChDirMode=2
-"let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__', 'node_modules'] let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
-"let g:NERDTreeShowBookmarks=1
-"let g:nerdtree_tabs_focus_on_files=1
-"let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
-"let g:NERDTreeShowHidden=1
-"nmap ,n :NERDTreeFind<CR>
+nmap <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeChDirMode=2
+let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__', 'node_modules'] 
+let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
+let g:NERDTreeShowBookmarks=1
+let g:nerdtree_tabs_focus_on_files=1
+let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
+let g:NERDTreeShowHidden=1
+nmap ,n :NERDTreeFind<CR>
 
 nnoremap Y y$
 inoremap , ,<c-g>u
@@ -122,6 +121,9 @@ autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
 nnoremap <leader>x :!chmod +x %<CR>
+nnoremap <leader>b :bprev<cr>
+nnoremap <leader>n :bnext<cr>
+
 
 " TODO: Remove coc and replace with nvim-lsp client
 " coc conig
@@ -130,12 +132,12 @@ let g:coc_global_extensions = [
   \ ]
 
 
-# if project using prettier, enable it
+" if project using prettier, enable it
 if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
   let g:coc_global_extensions += ['coc-prettier']
 endif
 
-# if project using eslint, enable it
+" if project using eslint, enable it
 if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
   let g:coc_global_extensions += ['coc-eslint']
 endif
@@ -170,6 +172,4 @@ nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
 
 nmap <leader>do <Plug>(coc-codeaction)
-
-
 
