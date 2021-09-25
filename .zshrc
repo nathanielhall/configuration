@@ -1,96 +1,137 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export TERM=xterm-256color
+export CLICOLOR=1
+export LSCOLORS=Fafacxdxbxegedabagacad
+export EDITOR=nvim
 
-# Path to your oh-my-zsh installation.
-export ZSH="/Users/nathanielhall/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# PROMPT STUFF
+GREEN=$(tput setaf 2);
+YELLOW=$(tput setaf 3);
+RESET=$(tput sgr0);
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+function git_branch {
+  # Shows the current branch if in a git repository
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\ \(\1\)/';
+}
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+function random_element {
+  declare -a array=("$@")
+  r=$((RANDOM % ${#array[@]}))
+  printf "%s\n" "${array[$r]}"
+}
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+# Default Prompt
+setEmoji () {
+  EMOJI="$*"
+  DISPLAY_DIR='$(dirs)'
+  DISPLAY_BRANCH='$(git_branch)'
+  PROMPT="${YELLOW}${DISPLAY_DIR}${GREEN}${DISPLAY_BRANCH}${RESET} ${EMOJI}"$'\n'"$ ";
+}
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+newRandomEmoji () {
+  setEmoji "$(random_element 😅 👽 🔥 🚀 👻 ⛄ 👾 🍔 😄 🍰 🐑 😎 🏎 🤖 😇 😼 💪 🦄 🥓 🌮 🎉 💯 ⚛️ 🐠 🐳 🐿 🥳 🤩 🤯 🤠 👨‍💻 🦸‍ 🧝‍ 🧞‍ ��‍ 👨‍🚀 👨‍🔬 🕺 🦁 🐶 🐵 🐻 🦊 🐙 🦎 🦖 🦕 🦍 🦈 🐊 🦂 🐍 🐢 🐘 🐉 🦚 ✨ ☄️ ⚡️ 💥 💫 🧬 🔮 ⚗️ 🎊 🔭 ⚪️ 🔱)"
+}
 
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+newRandomEmoji
 
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+#alias jestify="PS1=\"��\"$'\n'\"$ \"";
+#alias testinglibify="PS1=\"🐙\"$'\n'\"$ \"";
+#alias cypressify="PS1=\"🌀\"$'\n'\"$ \"";
+#alias staticify="PS1=\"🚀\"$'\n'\"$ \"";
+#alias nodeify="PS1=\"💥\"$'\n'\"$ \"";
+#alias reactify="PS1=\"⚛️\"$'\n'\"$ \"";
+#alias harryify="PS1=\"🧙‍\"$'\n'\"$ \"";
 
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+# allow substitution in PS1
+setopt promptsubst
 
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+# history size
+HISTSIZE=5000
+HISTFILESIZE=10000
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+SAVEHIST=5000
+setopt EXTENDED_HISTORY
+HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
+# share history across multiple zsh sessions
+setopt SHARE_HISTORY
+# append to history
+setopt APPEND_HISTORY
+# adds commands as they are typed, not at shell exit
+setopt INC_APPEND_HISTORY
+# do not store duplications
+setopt HIST_IGNORE_DUPS
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+# PATH ALTERATIONS
+## Node
+PATH="/usr/local/bin:$PATH:./node_modules/.bin";
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+## Yarn
+# PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+alias yarn="echo update the PATH in ~/.zshrc"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+# Custom bins
+PATH="$PATH:$HOME/.bin";
+# dotfile bins
+PATH="$PATH:$HOME/.my_bin";
 
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+# CDPATH ALTERATIONS
+CDPATH=.:$HOME:$HOME/code:$HOME/code/epic-react:$HOME/code/testingjavascript:$HOME/Desktop
+# CDPATH=($HOME $HOME/code $HOME/Desktop)
 
-source $ZSH/oh-my-zsh.sh
+# disable https://scarf.sh/
+SCARF_ANALYTICS=false
 
-# User configuration
+touch .hushlogin
 
-# export MANPATH="/usr/local/man:$MANPATH"
+# Custom Aliases
+alias code="\"/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code\""
+function c { code ${@:-.} }
+alias ll="ls -1a";
+alias ..="cd ../";
+alias ..l="cd ../ && ll";
+alias vz="vim ~/.zshrc";
+alias cz="code ~/.zshrc";
+alias sz="source ~/.zshrc";
+alias d="cd ~/code";
+alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+alias deleteDSFiles="find . -name '.DS_Store' -type f -delete"
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+alias v="nvim"
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+## git aliases
+function gc { git commit -m "$@"; }
+alias gs="git status";
+alias gp="git pull";
+alias gf="git fetch";
+alias gpush="git push";
+alias gd="git diff";
+alias ga="git add .";
+dif() { git diff --color --no-index "$1" "$2" | diff-so-fancy; }
+cdiff() { code --diff "$1" "$2"; }
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+## npm aliases
+alias rmn="rm -rf node_modules";
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# Custom functions
+mg () { mkdir "$@" && cd "$@" || exit; }
+function quit () {
+  if [ -z "$1" ]; then
+    # display usage if no parameters given
+    echo "Usage: quit appname"
+  else
+    for appname in $1; do
+    osascript -e 'quit app "'$appname'"'
+    done
+  fi
+}
+
+gif() {
+  ffmpeg -i "$1" -vf "fps=25,scale=iw/2:ih/2:flags=lanczos,palettegen" -y "/tmp/palette.png"
+  ffmpeg -i "$1" -i "/tmp/palette.png" -lavfi "fps=25,scale=iw/2:ih/2:flags=lanczos [x]; [x][1:v] paletteuse" -f image2pipe -vcodec ppm - | convert -delay 4 -layers Optimize -loop 0 - "${1%.*}.gif"
+}
+
+autoload -Uz compinit && compinit
+
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
