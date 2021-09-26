@@ -4,6 +4,7 @@ let &packpath = &runtimepath
 source ~/.vimrc
 
 
+
 set termguicolors
 
 set wildmode=longest,list,full
@@ -57,6 +58,9 @@ call plug#end()
 
 
 colorscheme cobalt2
+
+" Change style for Comment (must run AFTER colorscheme)
+:hi Comment ctermfg=33 ctermbg=NONE cterm=NONE guifg=#0878F4 guibg=NONE gui=italic
 
 let mapleader = " "
 
