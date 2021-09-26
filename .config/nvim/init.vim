@@ -13,7 +13,7 @@ set wildmenu
 " Ignore Files
 set wildignore+=**/coverage/*
 set wildignore+=**/node_modules/*
-set wildignore+=**/.git/*
+seth wildignore+=**/.git/*
 
 
 
@@ -54,6 +54,10 @@ Plug 'herrbischoff/cobalt2.vim'
 "
 " 
 Plug 'tpope/vim-fugitive'
+
+"Plug 'kyazdani42/nvim-web-devicons'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 call plug#end()
 
 
@@ -67,6 +71,10 @@ let mapleader = " "
 lua require("nathanielhall")
 
 inoremap jj <ESC> 
+
+ 
+set guifont=DankMono\ Nerd\ Font\ Regular\ 12
+let g:airline_powerline_fonts = 1
 
 nmap <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeChDirMode=2
