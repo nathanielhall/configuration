@@ -1,4 +1,4 @@
-require("nathanielhall._telescope")
+require("nathanielhall.telescope")
 
 if pcall(require, 'plenary') then
   RELOAD = require('plenary.reload').reload_module
