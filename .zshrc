@@ -1,10 +1,16 @@
+# ##############################################
+#                    ZSHRC 
+# ##############################################
+#
 export TERM=xterm-256color
 export CLICOLOR=1
-export LSCOLORS=Fafacxdxbxegedabagacad
-export EDITOR=nvim
+export LSCOLORS=FafacxdxbxegedabagacaD
 
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# PROMPT STUFF
+# ##############################################
+#               PROMPT STUFF
+# ##############################################
 GREEN=$(tput setaf 2);
 YELLOW=$(tput setaf 3);
 RESET=$(tput sgr0);
@@ -32,26 +38,22 @@ newRandomEmoji () {
   setEmoji "$(random_element 😅 👽 🔥 🚀 👻 ⛄ 👾 🍔 😄 🍰 🐑 😎 🏎 🤖 😇 😼 💪 🦄 🥓 🌮 🎉 💯 ⚛️ 🐠 🐳 🐿 🥳 🤩 🤯 🤠 👨‍💻 🦸‍ 🧝‍ 🧞‍ ��‍ 👨‍🚀 👨‍🔬 🕺 🦁 🐶 🐵 🐻 🦊 🐙 🦎 🦖 🦕 🦍 🦈 🐊 🦂 🐍 🐢 🐘 🐉 🦚 ✨ ☄️ ⚡️ 💥 💫 🧬 🔮 ⚗️ 🎊 🔭 ⚪️ 🔱)"
 }
 
-newRandomEmoji
 
-#alias jestify="PS1=\"��\"$'\n'\"$ \"";
-#alias testinglibify="PS1=\"🐙\"$'\n'\"$ \"";
-#alias cypressify="PS1=\"🌀\"$'\n'\"$ \"";
-#alias staticify="PS1=\"🚀\"$'\n'\"$ \"";
-#alias nodeify="PS1=\"💥\"$'\n'\"$ \"";
-#alias reactify="PS1=\"⚛️\"$'\n'\"$ \"";
-#alias harryify="PS1=\"🧙‍\"$'\n'\"$ \"";
+newRandomEmoji
 
 # allow substitution in PS1
 setopt promptsubst
 
-# history size
+# ##############################################
+#                HISTORY
+# ##############################################
 HISTSIZE=5000
 HISTFILESIZE=10000
-
 SAVEHIST=5000
 setopt EXTENDED_HISTORY
 HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
+#HISTFILE=~/.cache/zsh/history
+
 # share history across multiple zsh sessions
 setopt SHARE_HISTORY
 # append to history
@@ -61,29 +63,63 @@ setopt INC_APPEND_HISTORY
 # do not store duplications
 setopt HIST_IGNORE_DUPS
 
-# PATH ALTERATIONS
-## Node
-PATH="/usr/local/bin:$PATH:./node_modules/.bin";
-
-## Yarn
-# PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-alias yarn="echo update the PATH in ~/.zshrc"
-
-# Custom bins
-PATH="$PATH:$HOME/.bin";
-# dotfile bins
-PATH="$PATH:$HOME/.my_bin";
-
-# CDPATH ALTERATIONS
-CDPATH=.:$HOME:$HOME/code:$HOME/code/epic-react:$HOME/code/testingjavascript:$HOME/Desktop
-# CDPATH=($HOME $HOME/code $HOME/Desktop)
-
 # disable https://scarf.sh/
-SCARF_ANALYTICS=false
+#SCARF_ANALYTICS=false
 
-touch .hushlogin
 
-# Custom Aliases
+# ##############################################
+#               Vi Mode 
+# ##############################################
+#
+# Basic auto/tab complete:
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)		# Include hidden files.
+
+# vi mode
+bindkey -v
+export KEYTIMEOUT=5
+
+# Use vim keys in tab complete menu:
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v '^?' backward-delete-char
+
+#bindkey -M vicmd j vi-back-char
+#bindkey -M vicmd k vi-down-line-or-history
+#bindkey -M vicmd l vi-up-line-or-history
+#bindkey -M vicmd \; vi-forward-char
+
+ #Change cursor shape for different vi modes.
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] ||
+     [[ $1 = 'block' ]]; then
+    echo -ne '\e[1 q'
+  elif [[ ${KEYMAP} == main ]] ||
+       [[ ${KEYMAP} == viins ]] ||
+       [[ ${KEYMAP} = '' ]] ||
+       [[ $1 = 'beam' ]]; then
+    echo -ne '\e[5 q'
+  fi
+}
+zle -N zle-keymap-select
+zle-line-init() {
+    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+    echo -ne "\e[5 q"
+}
+zle -N zle-line-init
+echo -ne '\e[5 q' # Use beam shape cursor on startup.
+preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+
+
+
+# ##############################################
+#                ALIASES
+# ##############################################
 alias code="\"/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code\""
 function c { code ${@:-.} }
 alias ll="ls -1a";
@@ -127,11 +163,8 @@ function quit () {
   fi
 }
 
-gif() {
-  ffmpeg -i "$1" -vf "fps=25,scale=iw/2:ih/2:flags=lanczos,palettegen" -y "/tmp/palette.png"
-  ffmpeg -i "$1" -i "/tmp/palette.png" -lavfi "fps=25,scale=iw/2:ih/2:flags=lanczos [x]; [x][1:v] paletteuse" -f image2pipe -vcodec ppm - | convert -delay 4 -layers Optimize -loop 0 - "${1%.*}.gif"
-}
+# ##############################################
 
-autoload -Uz compinit && compinit
 
+# Not sure this is needed - REVIEW
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
