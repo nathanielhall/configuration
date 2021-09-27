@@ -1,27 +1,33 @@
+
+" Identation Options
 set autoindent
-set noerrorbells
-set relativenumber
+set expandtab
 set tabstop=4 softtabstop=4
 set shiftwidth=4
-set expandtab
 set smartindent
+
+" Search Options
+set incsearch
+set smartcase
+
+" Text Rendering
+set scrolloff=8
+set sidescrolloff=5
+syntax enable
+
+" UI
+set ruler
+set mouse=a
+set title
+set noerrorbells
+set relativenumber
+
+" Misc,
 set nu
 set nowrap
 set nohlsearch
-set smartcase
 set noswapfile
 set nobackup
-set incsearch
-set scrolloff=8
-
-call plug#begin('~/.vim/plugged')
-Plug 'gruvbox-community/gruvbox'
-call plug#end()
-
-inoremap jj <ESC>
-
-
-colorscheme gruvbox
-
+set encoding=UTF-8
 
 
