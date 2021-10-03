@@ -1,41 +1,38 @@
 
+" TODO copy vimrc settings here and remove following lines
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 source ~/.vimrc
-
-
 
 set termguicolors
 
 set wildmode=longest,list,full
 set wildmenu
-"
-" Ignore Files
 set wildignore+=**/coverage/*
 set wildignore+=**/node_modules/*
-seth wildignore+=**/.git/*
+set wildignore+=**/.git/*
 
+set splitbelow
+set splitright
 
 
 call plug#begin('~/.vim/plugged')
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc-eslint'
-Plug 'neoclide/coc-prettier'
-
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-Plug 'scrooloose/nerdtree'
+" Native LSP
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-compe'
+Plug 'glepnir/lspsaga.nvim'
+
+" Utils
 Plug 'scrooloose/nerdcommenter'
 Plug 'theprimeagen/vim-be-good'
 
-" Telescope
+" File Management
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'  
-
-" test these
-" Plug 'hrsh7th/nvim-compe'
 
 " javascript / jsx
 Plug 'pangloss/vim-javascript'
@@ -45,46 +42,49 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 
-" 
+" Status Bar
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-"
+" Cobalt2 - Wes Bos
 Plug 'herrbischoff/cobalt2.vim'
-"
-" 
+"Plug 'gruvbox-community/gruvbox'
+
+"  Git
 Plug 'tpope/vim-fugitive'
 
-"Plug 'kyazdani42/nvim-web-devicons'
-Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Icons / Tree
+Plug 'akinsho/nvim-bufferline.lua'
+Plug 'kyazdani42/nvim-web-devicons' 
+Plug 'kyazdani42/nvim-tree.lua'
 call plug#end()
 
 
 colorscheme cobalt2
 
-" Change style for Comment (must run AFTER colorscheme)
-:hi Comment ctermfg=33 ctermbg=NONE cterm=NONE guifg=#0878F4 guibg=NONE gui=italic
+
+" =======================
+"     Color Changes
+" =======================
+source $HOME/.config/nvim/plugin/colors.vim
+" =======================
+
 
 let mapleader = " "
 
 lua require("nathanielhall")
-
-inoremap jj <ESC> 
-
  
-set guifont=DankMono\ Nerd\ Font\ Regular\ 12
+set guifont=DankMono\ Nerd\ Font\ Regular:h12
 let g:airline_powerline_fonts = 1
 
-nmap <C-n> :NERDTreeToggle<CR>
-let g:NERDTreeChDirMode=2
-let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__', 'node_modules'] 
-let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
-let g:NERDTreeShowBookmarks=1
-let g:nerdtree_tabs_focus_on_files=1
-let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
-let g:NERDTreeShowHidden=1
-nmap ,n :NERDTreeFind<CR>
+if exists('g:loaded_webdevicons')
+  call webdevicons#refresh()
+endif
+
+" ===============
+"     REMAPS
+" ===============
+inoremap jj <ESC> 
 
 nnoremap Y y$
 inoremap , ,<c-g>u
@@ -118,14 +118,11 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-set splitbelow
-set splitright
 
 " nnoremap <Leader>w <C-w>
 nnoremap ,w <C-w>
 
-
-nnoremap <Leader>+ :vertical resize +5<CR>
+nnoremap <Leader>= :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>
 noremap <Leader>rp :resize 100<CR>
 
@@ -136,52 +133,5 @@ nnoremap <leader>x :!chmod +x %<CR>
 nnoremap <leader>b :bprev<cr>
 nnoremap <leader>n :bnext<cr>
 
-
-" TODO: Remove coc and replace with nvim-lsp client
-" coc conig
-let g:coc_global_extensions = [
-  \ 'coc-tsserver'
-  \ ]
-
-
-" if project using prettier, enable it
-if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
-  let g:coc_global_extensions += ['coc-prettier']
-endif
-
-" if project using eslint, enable it
-if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
-  let g:coc_global_extensions += ['coc-eslint']
-endif
-
-
-nnoremap <silent> K :call CocAction('doHover')<CR>
-
-
-function! ShowDocIfNoDiagnostic(timer_id)
-  if (coc#float#has_float() == 0 && CocHasProvider('hover') == 1)
-    silent call CocActionAsync('doHover')
-  endif
-endfunction
-
-function! s:show_hover_doc()
-  call timer_start(500, 'ShowDocIfNoDiagnostic')
-endfunction
-
-autocmd CursorHoldI * :call <SID>show_hover_doc()
-autocmd CursorHold * :call <SID>show_hover_doc()
-
-
-" Navigating
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gr <Plug>(coc-references)
-
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
-nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
-
-nmap <leader>do <Plug>(coc-codeaction)
+nnoremap <silent> gb :BufferLinePick<CR>
 

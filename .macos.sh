@@ -54,6 +54,20 @@ git clone git@github.com:nathanielhall/configuration.git "${HOME}/configuration"
 ln -s "${HOME}/configuration/.zshrc" "${HOME}/.zshrc"
 ln -s "${HOME}/configuration/.vimrc" "${HOME}/.vimrc"
 
+# .config
+ln -s "${HOME}/configuration/.config/nvim/init.vim" "${HOME}/.config/nvim/init.vim"
+
+# .config/lua
+ln -s "${HOME}/configuration/.config/nvim/lua/nathanielhall/init.lua" "${HOME}/.config/nvim/lua/nathanielhall/init.lua"
+ln -s "${HOME}/configuration/.config/nvim/lua/nathanielhall/lsp.lua" "${HOME}/.config/nvim/lua/nathanielhall/lsp.lua"
+ln -s "${HOME}/configuration/.config/nvim/lua/nathanielhall/telescope.lua" "${HOME}/.config/nvim/lua/nathanielhall/telescope.lua"
+ln -s "${HOME}/configuration/.config/nvim/lua/nathanielhall/tree.lua" "${HOME}/.config/nvim/lua/nathanielhall/tree.lua"
+
+# .config/plugin
+ln -s "${HOME}/configuration/.config/nvim/plugin/colors.vim" "${HOME}/.config/nvim/plugin/colors.vim"
+ln -s "${HOME}/configuration/.config/nvim/plugin/telescope.vim" "${HOME}/.config/nvim/plugin/telescope.vim"
+ln -s "${HOME}/configuration/.config/nvim/plugin/tree.vim" "${HOME}/.config/nvim/plugin/tree.vim"
+
 
 
 

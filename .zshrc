@@ -89,11 +89,6 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
-#bindkey -M vicmd j vi-back-char
-#bindkey -M vicmd k vi-down-line-or-history
-#bindkey -M vicmd l vi-up-line-or-history
-#bindkey -M vicmd \; vi-forward-char
-
  #Change cursor shape for different vi modes.
 function zle-keymap-select {
   if [[ ${KEYMAP} == vicmd ]] ||
@@ -106,22 +101,23 @@ function zle-keymap-select {
     echo -ne '\e[5 q'
   fi
 }
+
 zle -N zle-keymap-select
 zle-line-init() {
     zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
     echo -ne "\e[5 q"
 }
+
 zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
-
-
 
 # ##############################################
 #                ALIASES
 # ##############################################
 alias code="\"/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code\""
 function c { code ${@:-.} }
+
 alias ll="ls -1a";
 alias ..="cd ../";
 alias ..l="cd ../ && ll";
@@ -164,7 +160,3 @@ function quit () {
 }
 
 # ##############################################
-
-
-# Not sure this is needed - REVIEW
-export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).

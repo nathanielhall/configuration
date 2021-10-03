@@ -1,4 +1,6 @@
 require("nathanielhall.telescope")
+require("nathanielhall.lsp")
+require("nathanielhall.tree")
 
 if pcall(require, 'plenary') then
   RELOAD = require('plenary.reload').reload_module
