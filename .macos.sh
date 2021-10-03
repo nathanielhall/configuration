@@ -59,6 +59,8 @@ git clone git@github.com:nathanielhall/configuration.git "${HOME}/configuration"
 
 # TODO: run ./install to run stow (add symlinks)
 
+echo "clone zsh-autosuggestions"
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 
 ###############################################################################
 ###############################################################################
