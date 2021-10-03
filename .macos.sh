@@ -38,8 +38,13 @@ echo "install fonts"
 brew tap homebrew/cask-fonts
 brew install --cask font-fira-code
 
-echo "install apps using brew (not cask)"
-brew install tmux neovim
+# TODO: how to add Dank Mono here?
+
+echo "setup development environment"
+brew install tmux neovim stow
+
+# TODO: language servers, eslint_d, pretier, ..etc
+# TODO: npm typescript -g
 
 # echo "Generating an RSA token for GitHub"
 # mkdir -p ~/.ssh
@@ -51,28 +56,13 @@ brew install tmux neovim
 
 echo "cloning configuration files"
 git clone git@github.com:nathanielhall/configuration.git "${HOME}/configuration"
-ln -s "${HOME}/configuration/.zshrc" "${HOME}/.zshrc"
-ln -s "${HOME}/configuration/.vimrc" "${HOME}/.vimrc"
 
-# .config
-ln -s "${HOME}/configuration/.config/nvim/init.vim" "${HOME}/.config/nvim/init.vim"
-
-# .config/lua
-ln -s "${HOME}/configuration/.config/nvim/lua/nathanielhall/init.lua" "${HOME}/.config/nvim/lua/nathanielhall/init.lua"
-ln -s "${HOME}/configuration/.config/nvim/lua/nathanielhall/lsp.lua" "${HOME}/.config/nvim/lua/nathanielhall/lsp.lua"
-ln -s "${HOME}/configuration/.config/nvim/lua/nathanielhall/telescope.lua" "${HOME}/.config/nvim/lua/nathanielhall/telescope.lua"
-ln -s "${HOME}/configuration/.config/nvim/lua/nathanielhall/tree.lua" "${HOME}/.config/nvim/lua/nathanielhall/tree.lua"
-
-# .config/plugin
-ln -s "${HOME}/configuration/.config/nvim/plugin/colors.vim" "${HOME}/.config/nvim/plugin/colors.vim"
-ln -s "${HOME}/configuration/.config/nvim/plugin/telescope.vim" "${HOME}/.config/nvim/plugin/telescope.vim"
-ln -s "${HOME}/configuration/.config/nvim/plugin/tree.vim" "${HOME}/.config/nvim/plugin/tree.vim"
+# TODO: run ./install to run stow (add symlinks)
 
 
-
-
-
-
+###############################################################################
+###############################################################################
+###############################################################################
 echo "making system modifications:"
 
 # Make Chrome Two finger swipe for back and forward
