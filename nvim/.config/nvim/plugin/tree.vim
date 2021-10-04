@@ -7,6 +7,7 @@ let g:nvim_tree_quit_on_open = 1
 let g:nvim_tree_indent_markers = 1
 let g:nvim_tree_git_hl = 1
 let g:nvim_tree_group_empty = 1
+let g:nvim_tree_icon_padding = 2
 
 " enabling this will break color settings!
 "let g:nvim_tree_highlight_opened_files = 1

@@ -86,7 +86,15 @@ endif
 " ===============
 inoremap jj <ESC> 
 
+nnoremap H ^
+xnoremap H ^
+onoremap H ^
+nnoremap L $
+xnoremap L $
+onoremap L $
+
 nnoremap Y y$
+
 inoremap , ,<c-g>u
 inoremap . .<c-g>u
 inoremap ! !<c-g>u
@@ -99,17 +107,12 @@ nnoremap <leader>Y gg"+yG
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
 
-" Moving text
+xnoremap <leader>p "_dP
+
+" Move text
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-inoremap <C-j> <esc>:m .+1<CR>==
-inoremap <C-k> <esc>:m .-2<CR>==
-noremap <leader>k :m .-2<CR>==
-noremap <leader>j :m .+1<CR>==
 
-
-" duplicate
-xnoremap <leader>p "_dP
 nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
 
 " Vim Split remaps
@@ -118,7 +121,6 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-
 " nnoremap <Leader>w <C-w>
 nnoremap ,w <C-w>
 
@@ -126,12 +128,16 @@ nnoremap <Leader>= :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>
 noremap <Leader>rp :resize 100<CR>
 
-autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
-autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
-
 nnoremap <leader>x :!chmod +x %<CR>
 nnoremap <leader>b :bprev<cr>
 nnoremap <leader>n :bnext<cr>
 
 nnoremap <silent> gb :BufferLinePick<CR>
+
+" ===========================================================
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+
+
+
 

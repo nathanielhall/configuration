@@ -5,7 +5,7 @@
 require'nvim-tree'.setup {
   auto_close = true,
   view = {
-   --side='right',
+   side='right',
    auto_resize = true,
   }
 }

@@ -62,6 +62,10 @@ git clone git@github.com:nathanielhall/configuration.git "${HOME}/configuration"
 echo "clone zsh-autosuggestions"
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 
+
+# TODO: Add specticle shortcut changes
+# TODO: iterm settings
+
 ###############################################################################
 ###############################################################################
 ###############################################################################
