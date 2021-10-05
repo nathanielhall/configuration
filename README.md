@@ -21,8 +21,7 @@ brew install efm-langserver
 ```
 
 Run `./install.sh` to stow folders defined in `$STOW_FOLDERS`
-- Set environment variables (i.e., add to .zshrc)
-- Remove any existing files since these will become symlinks
+- Remove any existing files since these will become symlinks (e.g., .zshrc, .zprofile, .tmux.config)
 
 
 ## Resources
