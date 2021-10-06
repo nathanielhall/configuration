@@ -1,5 +1,5 @@
-# Configuration Files (dotfiles)
-> The purpose of this repo is to manage my dotfiles using stow.
+# .dotfiles
+> My dotfiles for Neovim, Tmux, Zsh, VSCode
 
 ### Neovim + Tmux
 ```
