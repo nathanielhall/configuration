@@ -1,32 +1,63 @@
 {
+  "breadcrumbs.enabled": true,
   "editor.fontSize": 14,
+  // "editor.scrollBeyondLastLine": false,
   "editor.fontFamily": "'Dank Mono', 'fira code'",
   "editor.quickSuggestionsDelay": 30,
   "editor.wordBasedSuggestions": false,
   "editor.suggest.localityBonus": true,
   "editor.acceptSuggestionOnCommitCharacter": false,
-  "editor.fontLigatures": true,
-  "editor.snippetSuggestions": "top",
   "editor.lightbulb.enabled": false,
   "editor.glyphMargin": false,
+  "editor.snippetSuggestions": "top",
+  "editor.fontLigatures": true,
+  "editor.minimap.enabled": false,
+
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.suggestSelection": "recentlyUsed",
+    "editor.suggest.showKeywords": false
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.suggestSelection": "recentlyUsed",
+    "editor.suggest.showKeywords": false
+  },
+
   "workbench.colorTheme": "Cobalt2",
   "workbench.sideBar.location": "right",
   "workbench.statusBar.visible": true,
   "workbench.settings.useSplitJSON": false,
   "workbench.settings.editor": "json", // always show json view
-  "breadcrumbs.enabled": true,
-  "search.searchOnType": false,
-  "editor.minimap.enabled": false,
   "workbench.iconTheme": "vscode-icons",
+
+  "search.searchOnType": false,
   "vsicons.dontShowNewVersionMessage": true,
-  "window.zoomLevel": 0,
   "files.insertFinalNewline": false,
+
 
   /** Terminal  */
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.fontFamily": "'Dank Mono', 'fira code'",
 
+
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true
+  },
+
+
   /** VIM */
+  // TODO: 
+  //  increasee/decresase pane width
+  // how best to escape out of various areas (sidebar, terminal, ..etc)
+
+  // source control / git commands
+  //  copy sections of code (shift+ ^ + down)
+
   "vim.leader": "<space>",
   "vim.insertModeKeyBindings": [
     {
@@ -38,41 +69,41 @@
     {
         "before": ["<leader>", "c"],
         "commands": [
-            "editor.action.copyLinesDownAction"
+            "editor.action.copyLinesDownAction",
         ],
         "when": "editorTextFocus && !editorReadonly"
-    }
+    },
   ],
   "vim.normalModeKeyBindings": [
     {
         "before": ["<leader>", "p"],
         "commands": [
-            "workbench.action.showCommands"
+            "workbench.action.showCommands",
         ]
     },
     {
         "before": ["<leader>", "s"],
         "commands": [
-            "workbench.action.findInFiles"
+            "workbench.action.findInFiles",
         ]
     },
     {
         "before": ["<leader>", "t"],
         "commands": [
-            "workbench.action.terminal.focus"
+            "workbench.action.terminal.focus",
         ]
     },
     {
         "before": ["<leader>", "e"],
         "commands": [
-            "workbench.view.explorer"
+            "workbench.view.explorer",
         ],
         "when": "viewContainer.workbench.view.explorer.enabled"
     },
     {
         "before": [",", "n"],
         "commands": [
-            "workbench.action.toggleSidebarVisibility"
+            "workbench.action.toggleSidebarVisibility",
         ],
         "when": "!viewContainer.workbench.view.explorer.enabled"
     },
@@ -80,37 +111,37 @@
     {
         "before": ["<C-h>"],
         "commands": [
-            "workbench.action.navigateLeft"
+            "workbench.action.navigateLeft",
         ]
     },
     {
         "before": ["<C-j>"],
         "commands": [
-            "workbench.action.navigateDown"
+            "workbench.action.navigateDown",
         ]
     },
     {
         "before": ["<C-k>"],
         "commands": [
-            "workbench.action.navigateUp"
+            "workbench.action.navigateUp",
         ]
     },
     {
         "before": ["<C-l>"],
         "commands": [
-            "workbench.action.navigateRight"
+            "workbench.action.navigateRight",
         ]
     },
     {
         "before": [",", "w", "s"],
         "commands": [
-            "workbench.action.splitEditorDown"
+            "workbench.action.splitEditorDown",
         ]
     },
     {
         "before": [",", "w", "v" ],
         "commands": [
-            "workbench.action.splitEditorRight"
+            "workbench.action.splitEditorRight",
         ]
     },
     {
@@ -120,19 +151,16 @@
         ],
         "when": "workbench.scm.active"
     }
+
   ],
   "editor.lineNumbers": "relative",
-
-
-
-
-
 
   /** TODO Highlight */
   "todohighlight.exclude": [
     "**/node_modules/**",
     "**/bower_components/**",
     "**/dist/**",
+    // "**/build/**",   // commented for Planner
     "**/.vscode/**",
     "**/.github/**",
     "**/_output/**",
@@ -162,10 +190,11 @@
   "gitlens.views.repositories.branches.layout": "list",
 
   /** Possible Workspace settings */
-  "editor.tabSize": 2,
+  "editor.tabSize": 8,
   "emmet.includeLanguages": {
     "erb": "html"
   },
+  "ruby.intellisense": "rubyLocate",
   "emmet.triggerExpansionOnTab": true,
 
   "search.exclude": {
@@ -193,6 +222,5 @@
   "gitlens.advanced.messages": {
     "suppressGitVersionWarning": true
   },
-
-  "workbench.activityBar.visible": true
 }
+
