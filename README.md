@@ -24,7 +24,7 @@ brew install efm-langserver
   - Remove any existing files since these will become symlinks (e.g., .zshrc, .zprofile, .tmux.config)
 
 ### Example:
-<img src="screenshot.png" alt="App Screenshot" title="App Screenshot" width="700" />
+<img src="screenshot.png" alt="App Screenshot" title="App Screenshot" width="900" />
 
 
 ## Resources
