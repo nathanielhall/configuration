@@ -1,7 +1,7 @@
 # .dotfiles
 > My dotfiles for Neovim, Tmux, Zsh, VSCode
 
-### Neovim + Tmux
+## Neovim + Tmux + Cobalt2
 ```
 brew install neovim tmux stow
 ```
@@ -19,17 +19,12 @@ npm i -g typescript typescript-language-server
 npm install -g eslint_d
 brew install efm-langserver
 ```
+### Install
+- Run `./install.sh` to stow folders defined in `$STOW_FOLDERS`
+  - Remove any existing files since these will become symlinks (e.g., .zshrc, .zprofile, .tmux.config)
 
-Run `./install.sh` to stow folders defined in `$STOW_FOLDERS`
-- Remove any existing files since these will become symlinks (e.g., .zshrc, .zprofile, .tmux.config)
-
-
-#### Example:
+### Example:
 <img src="screenshot.png" alt="App Screenshot" title="App Screenshot" width="700" />
-
-### iTerm Settings
-- Wes Bos Theme (see instructions on the following repo)
-```https://github.com/wesbos/Cobalt2-iterm```
 
 
 ## Resources
@@ -44,7 +39,7 @@ Run `./install.sh` to stow folders defined in `$STOW_FOLDERS`
 
 
 ### VSCode Configuration Improvements
-> Goal: improve VIM experience 
+> TODO: improve VIM experience 
 - Ability to use keyboard for source control/git using sidebar (stage changes, commit, .etc)
 - Easily navigate and split panes
 - (Work in progress..)
