@@ -4,7 +4,7 @@
 #
 export TERM=xterm-256color
 export CLICOLOR=1
-export LSCOLORS=FafacxdxbxegedabagacaD
+#export LSCOLORS=FafacxdxbxegedabagacaD
 export EDITOR=nvim
 
 export DOTFILES=$HOME/configuration
@@ -12,6 +12,8 @@ export ZDOTDIR=$HOME
 export STOW_FOLDERS="nvim, tmux, vim, zsh"
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+
 
 # ##############################################
 #               PROMPT STUFF
@@ -42,7 +44,6 @@ setEmoji () {
 newRandomEmoji () {
   setEmoji "$(random_element 😅 👽 🔥 🚀 👻 ⛄ 👾 🍔 😄 🍰 🐑 😎 🏎 🤖 😇 😼 💪 🦄 🥓 🌮 🎉 💯 ⚛️ 🐠 🐳 🐿 🥳 🤩 🤯 🤠 👨‍💻 🦸‍ 🧝‍ 🧞‍ ��‍ 👨‍🚀 👨‍🔬 🕺 🦁 🐶 🐵 🐻 🦊 🐙 🦎 🦖 🦕 🦍 🦈 🐊 🦂 🐍 🐢 🐘 🐉 🦚 ✨ ☄️ ⚡️ 💥 💫 🧬 🔮 ⚗️ 🎊 🔭 ⚪️ 🔱)"
 }
-
 
 newRandomEmoji
 

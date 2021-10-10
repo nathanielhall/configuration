@@ -23,6 +23,10 @@ brew install efm-langserver
 Run `./install.sh` to stow folders defined in `$STOW_FOLDERS`
 - Remove any existing files since these will become symlinks (e.g., .zshrc, .zprofile, .tmux.config)
 
+### iTerm Settings
+- Wes Bos Theme (see instructions on the following repo)
+```https://github.com/wesbos/Cobalt2-iterm```
+
 
 ## Resources
 [DONT DO THAT WITH YOUR DOTFILES (DO THIS)](https://youtu.be/tkUllCAGs3c)

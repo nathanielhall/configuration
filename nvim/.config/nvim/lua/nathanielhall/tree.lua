@@ -1,12 +1,8 @@
---
--- Break this up at some point
--- nvim-tree / nvim-web-devicons / lualine
---
 require'nvim-tree'.setup {
   auto_close = true,
   view = {
    side='right',
-   auto_resize = true,
+   auto_resize = false,
   }
 }
 
