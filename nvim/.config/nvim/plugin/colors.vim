@@ -1,6 +1,6 @@
-
+"
 " Override Cobalt2 Comment colors
-hi! Comment ctermfg=33 ctermbg=NONE cterm=NONE guifg=#0878F4 guibg=#193649 gui=italic
+hi! Comment ctermfg=33 ctermbg=NONE cterm=NONE guifg=#0088ff guibg=#193649 gui=italic
 " 
 "NvimTree - a list of groups can be found at `:help nvim_tree_highlight`
 
@@ -26,27 +26,9 @@ hi! NvimTreeMarkdownFile guifg=#aaaaaa
 hi! NvimTreeNormal guibg=#15232d
 
 "hi! NvimTreeIndentMarker guifg=#15232d
-hi! EndOfBuffer guibg=NONE
+hi! EndOfBuffer guibg=NONE 
 hi! VertSplit ctermfg=NONE ctermbg=NONE cterm=NONE guifg=#15232d guibg=NONE gui=NONE
 
-
-"NvimTreeGitDirty
-"NvimTreeGitStaged
-"NvimTreeGitMerge
-"NvimTreeGitRenamed
-"NvimTreeGitNew
-"NvimTreeGitDeleted
-
-"NvimTreeFileDirty
-"NvimTreeFileStaged
-"NvimTreeFileMerge
-"NvimTreeFileRenamed
-"NvimTreeFileNew
-"NvimTreeFileDeleted
-
-"Normal
-"EndOfBuffer
-"CursorLine
-"VertSplit
-"CursorColumn
+" Telescope
+hi! TelescopeNormal guibg=#15232d
 
