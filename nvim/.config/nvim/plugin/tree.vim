@@ -12,6 +12,9 @@ let g:nvim_tree_indent_markers = 0
 
 let g:nvim_tree_respect_buf_cwd = 1 
 
+" Set Folder Icon Color
+ hi! NvimTreeFolderIcon guifg=#f5c06f 
+
 " enabling this will break color settings!
 "let g:nvim_tree_highlight_opened_files = 1
 
