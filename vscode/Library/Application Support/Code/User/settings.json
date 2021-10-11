@@ -35,11 +35,9 @@
   "vsicons.dontShowNewVersionMessage": true,
   "files.insertFinalNewline": false,
 
-
   /** Terminal  */
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.fontFamily": "'Dank Mono', 'fira code'",
-
 
   "files.exclude": {
     "**/.git": true,
@@ -49,16 +47,10 @@
     "**/.DS_Store": true
   },
 
-
   /** VIM */
-  // TODO: 
-  //  increasee/decresase pane width
-  // how best to escape out of various areas (sidebar, terminal, ..etc)
-
-  // source control / git commands
-  //  copy sections of code (shift+ ^ + down)
-
   "vim.leader": "<space>",
+
+
   "vim.insertModeKeyBindings": [
     {
       "before": ["j", "j"],
@@ -67,91 +59,92 @@
   ],
   "vim.visualModeKeyBindings": [
     {
-        "before": ["<leader>", "c"],
-        "commands": [
-            "editor.action.copyLinesDownAction",
-        ],
-        "when": "editorTextFocus && !editorReadonly"
-    },
+      "before": ["<leader>", "c"],
+      "commands": ["editor.action.copyLinesDownAction"],
+      "when": "editorTextFocus && !editorReadonly"
+    }
   ],
   "vim.normalModeKeyBindings": [
     {
-        "before": ["<leader>", "p"],
-        "commands": [
-            "workbench.action.showCommands",
-        ]
+      "before": ["<leader>", "b"],
+      "commands": ["workbench.action.navigateBack"]
     },
     {
-        "before": ["<leader>", "s"],
-        "commands": [
-            "workbench.action.findInFiles",
-        ]
+      "before": ["<leader>", "n"],
+      "commands": ["workbench.action.navigateForward"]
     },
     {
-        "before": ["<leader>", "t"],
-        "commands": [
-            "workbench.action.terminal.focus",
-        ]
+        "before": ["H"],
+        "after": ["^"]
     },
     {
-        "before": ["<leader>", "e"],
-        "commands": [
-            "workbench.view.explorer",
-        ],
-        "when": "viewContainer.workbench.view.explorer.enabled"
+        "before": ["L"],
+        "after": ["$"]
     },
     {
-        "before": [",", "n"],
-        "commands": [
-            "workbench.action.toggleSidebarVisibility",
-        ],
-        "when": "!viewContainer.workbench.view.explorer.enabled"
+        "before": ["Y"],
+        "after": ["y", "$"]
+    },
+    {
+      "before": ["<leader>", "f"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<leader>", "s"],
+      "commands": ["workbench.action.findInFiles"]
+    },
+    {
+      "before": ["<leader>", "t"],
+      "commands": ["workbench.action.terminal.focus"]
+    },
+    {
+      "before": ["<leader>", "e"],
+      "commands": ["workbench.view.explorer"],
+      "when": "viewContainer.workbench.view.explorer.enabled"
+    },
+    {
+      "before": [",", "n"],
+      "commands": ["workbench.action.toggleSidebarVisibility"],
+      "when": "!viewContainer.workbench.view.explorer.enabled"
     },
 
     {
-        "before": ["<C-h>"],
-        "commands": [
-            "workbench.action.navigateLeft",
-        ]
+      "before": ["<C-h>"],
+      "commands": ["workbench.action.navigateLeft"]
     },
     {
-        "before": ["<C-j>"],
-        "commands": [
-            "workbench.action.navigateDown",
-        ]
+      "before": ["<C-j>"],
+      "commands": ["workbench.action.navigateDown"]
     },
     {
-        "before": ["<C-k>"],
-        "commands": [
-            "workbench.action.navigateUp",
-        ]
+      "before": ["<C-k>"],
+      "commands": ["workbench.action.navigateUp"]
     },
     {
-        "before": ["<C-l>"],
-        "commands": [
-            "workbench.action.navigateRight",
-        ]
+      "before": ["<C-l>"],
+      "commands": ["workbench.action.navigateRight"]
     },
     {
-        "before": [",", "w", "s"],
-        "commands": [
-            "workbench.action.splitEditorDown",
-        ]
+      "before": [",", "w", "s"],
+      "commands": ["workbench.action.splitEditorDown"]
     },
     {
-        "before": [",", "w", "v" ],
-        "commands": [
-            "workbench.action.splitEditorRight",
-        ]
+      "before": [",", "w", "v"],
+      "commands": ["workbench.action.splitEditorRight"]
     },
     {
-        "before": ["<leader>", "g"],
-        "commands": [
-            "workbench.view.scm"
-        ],
-        "when": "workbench.scm.active"
+      "before": ["<leader>", "-"],
+      "commands": ["workbench.action.decreaseViewSize"]
+    },
+    {
+      "before": ["<leader>", "="],
+      "commands": ["workbench.action.increaseViewSize"]
+    },
+    {
+      "before": ["<leader>", "g"],
+      "commands": ["workbench.view.scm"],
+      "when": "workbench.scm.active"
     }
-
   ],
   "editor.lineNumbers": "relative",
 
@@ -190,7 +183,6 @@
   "gitlens.views.repositories.branches.layout": "list",
 
   /** Possible Workspace settings */
-  "editor.tabSize": 8,
   "emmet.includeLanguages": {
     "erb": "html"
   },
@@ -207,20 +199,20 @@
 
   /** Formatting */
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+
   "editor.codeActionsOnSave": {
     // "source.organizeImports": true,
     "source.fixAll.eslint": true
   },
-  // "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
-  // "eslint.autoFixOnSave": true,
-
-  // ESLint Extension: default is to only watch js and jsx files
-  // "eslint.validate": ["typescript", "typescriptreact"],
-
-  "diffEditor.ignoreTrimWhitespace": false,
   "git.ignoreLegacyWarning": true,
   "gitlens.advanced.messages": {
     "suppressGitVersionWarning": true
   },
+  "editor.cursorStyle": "line",
+  "editor.insertSpaces": false,
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  "editor.wordWrap": "off",
+  "workbench.editor.showTabs": false,
+  // "redhat.telemetry.enabled": false,
+  // "security.workspace.trust.untrustedFiles": "open"
 }
-
