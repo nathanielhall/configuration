@@ -1,17 +1,18 @@
+
 [
-  // TODO: New folder shortcut
-  //
 
-  // ========================================================
-  // Source Control / Git
-  // ========================================================
-  {
-    "key": "ctrl+a",
-    "command": "git.stage",
-    "when": "workbench.scm.active"
-  },
-
-  // Terminal toggling
+  // =============================
+  // GIT
+  // =============================
+  // {
+  //   "key": "alt+up",
+  //   "command": "git.stage",
+  //   "when": "workbench.scm.active"
+  // },
+  // =============================
+  // Terminal toggling 
+  // =============================
+  // 
   {
     "key": "ctrl+shift+f",
     "command": "workbench.action.terminal.focus",
@@ -51,7 +52,15 @@
     "when": "!terminalFocus"
   },
 
-  // Toggle Sidebar
+  // =============================
+  //           Sidebar
+  // =============================
+  // Return to editor TODO: when editor is NOT focus
+  {
+    "key": "ctrl+shift+y",
+    "command": "workbench.action.focusLastEditorGroup",
+    "when": "!editorFocus"
+  },
   {
     "key": "ctrl+shift+g",
     "command": "-workbench.view.scm",
@@ -93,5 +102,117 @@
   {
     "key": "ctrl+shift+down",
     "command": "workbench.action.positionPanelBottom"
+  },
+  //  ==============================================================
+  // tmux like window keybindings
+  // ==============================================================
+
+  {
+    "key": "cmd+\\",
+    "command": "-workbench.action.splitEditor"
+  },
+  // ==============================================================
+  // tmux like Terminal keybindings
+  // NOTE: do not use with tmux 
+  // ==============================================================
+  /*
+  , {
+    "key": "ctrl+b right",
+    "command": "workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "alt+cmd+right",
+    "command": "-workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "ctrl+b left",
+    "command": "workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "alt+cmd+left",
+    "command": "-workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus && terminalProcessSupported"
+  },
+
+  // kill active window or pane
+  {
+    "key": "ctrl+b x",
+    "command": "workbench.action.terminal.kill"
+  },
+  // Rename Pane
+  {
+    "key": "ctrl+b ,",
+    "command": "workbench.action.terminal.rename"
+  },
+  // New Window
+  {
+    "key": "ctrl+b c",
+    "command": "workbench.action.terminal.new"
+  },
+  {
+    "key": "ctrl+shift+`",
+    "command": "-workbench.action.terminal.new"
+  },
+  {
+    "key": "ctrl+b 1",
+    "command": "workbench.action.terminal.focusAtIndex1"
+  },
+  {
+    "key": "ctrl+b 2",
+    "command": "workbench.action.terminal.focusAtIndex2"
+  },
+  {
+    "key": "ctrl+b 3",
+    "command": "workbench.action.terminal.focusAtIndex3"
+  },
+  {
+    "key": "ctrl+b 4",
+    "command": "workbench.action.terminal.focusAtIndex4"
+  },
+  {
+    "key": "ctrl+b 5",
+    "command": "workbench.action.terminal.focusAtIndex5"
+  },
+  {
+    "key": "ctrl+b 6",
+    "command": "workbench.action.terminal.focusAtIndex6"
+  },
+  {
+    "key": "ctrl+b 7",
+    "command": "workbench.action.terminal.focusAtIndex7"
+  },
+  {
+    "key": "ctrl+b 8",
+    "command": "workbench.action.terminal.focusAtIndex8"
+  },
+  {
+    "key": "ctrl+b 9",
+    "command": "workbench.action.terminal.focusAtIndex9"
+  },
+  // New Window
+  {
+    "key": "ctrl+b c",
+    "command": "workbench.action.terminal.openNativeConsole",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "shift+cmd+c",
+    "command": "-workbench.action.terminal.openNativeConsole",
+    "when": "!terminalFocus"
+  },
+  // Split Pane (vertical)
+  {
+    "key": "ctrl+b shift+5",
+    "command": "workbench.action.terminal.split",
+    "when": "terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "cmd+\\",
+    "command": "-workbench.action.terminal.split",
+    "when": "terminalFocus && terminalProcessSupported"
   }
+  /**/
 ]
