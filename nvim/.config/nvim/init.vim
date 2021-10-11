@@ -35,12 +35,12 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'  
 
 " javascript / jsx
-"Plug 'pangloss/vim-javascript'
-"Plug 'maxmellon/vim-jsx-pretty'
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
 
  "typescript / jsx
-"Plug 'leafgarland/typescript-vim'
-"Plug 'peitalin/vim-jsx-typescript'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 
 " Status Bar
 Plug 'vim-airline/vim-airline'
@@ -55,15 +55,15 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
 
 
-Plug 'gruvbox-community/gruvbox'
+"Plug 'gruvbox-community/gruvbox'
 
 " Cobalt2 - Wes Bos 
 "Plug 'herrbischoff/cobalt2.vim'
-"Plug 'gertjanreynaert/cobalt2-vim-theme'
+Plug 'gertjanreynaert/cobalt2-vim-theme'
 call plug#end()
 
 
-colorscheme gruvbox
+colorscheme cobalt2
 
 
 let mapleader = " "

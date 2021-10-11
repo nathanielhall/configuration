@@ -12,8 +12,27 @@ let g:nvim_tree_indent_markers = 0
 
 let g:nvim_tree_respect_buf_cwd = 1 
 
+" TODO: Move these color files
 " Set Folder Icon Color
  hi! NvimTreeFolderIcon guifg=#f5c06f 
+ hi! NvimTreeNormal guibg=#15232d
+" Telescope
+hi! TelescopeNormal guibg=#15232d
+
+
+hi! NvimTreeFolderName guifg=#bdbdbd
+hi! NvimTreeOpenedFolderName guifg=#bdbdbd
+hi! NvimTreeRootFolder guifg=#bdbdbd
+hi! NvimTreeEmptyFolderName guifg=#aaaaaa
+
+" Files
+hi! NvimTreeOpenFile guibg=#aaaaaa
+hi! NvimTreeSymlink guifg=#aaaaaa
+hi! NvimTreeSpecialFile guifg=#aaaaaa
+hi! NvimTreeExecFile guifg=#aaaaaa
+hi! NvimTreeMarkdownFile guifg=#aaaaaa
+
+hi! EndOfBuffer guibg=NONE
 
 " enabling this will break color settings!
 "let g:nvim_tree_highlight_opened_files = 1
