@@ -1,3 +1,4 @@
+-- https://jose-elias-alvarez.medium.com/configuring-neovims-lsp-client-for-typescript
 local nvim_lsp = require("lspconfig")
 local format_async = function(err, _, result, _, bufnr)
     if err ~= nil or result == nil then return end

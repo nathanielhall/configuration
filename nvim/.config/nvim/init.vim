@@ -27,6 +27,7 @@ Plug 'glepnir/lspsaga.nvim'
 " Utils
 Plug 'scrooloose/nerdcommenter'
 Plug 'theprimeagen/vim-be-good'
+Plug 'windwp/nvim-autopairs'
 
 " File Management
 Plug 'nvim-lua/popup.nvim'
