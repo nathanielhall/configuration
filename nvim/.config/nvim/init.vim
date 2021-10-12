@@ -17,16 +17,21 @@ set splitright
 
 
 call plug#begin('~/.vim/plugged')
+
+
+Plug 'windwp/nvim-autopairs'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Native LSP
 Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-compe'
-Plug 'glepnir/lspsaga.nvim'
+Plug 'hrsh7th/nvim-cmp'
+"Plug 'glepnir/lspsaga.nvim'
+Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
+Plug 'jose-elias-alvarez/minsnip.nvim'
+"Plug 'RRethy/vim-illuminate'
 
 " Utils
 Plug 'scrooloose/nerdcommenter'
-Plug 'theprimeagen/vim-be-good'
 
 " File Management
 Plug 'nvim-lua/popup.nvim'
@@ -35,12 +40,12 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'  
 
 " javascript / jsx
-Plug 'pangloss/vim-javascript'
-Plug 'maxmellon/vim-jsx-pretty'
+"Plug 'pangloss/vim-javascript'
+"Plug 'maxmellon/vim-jsx-pretty'
 
  "typescript / jsx
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
+"Plug 'leafgarland/typescript-vim'
+"Plug 'peitalin/vim-jsx-typescript'
 
 " Status Bar
 Plug 'vim-airline/vim-airline'
@@ -69,6 +74,9 @@ colorscheme cobalt2
 let mapleader = " "
 
 lua require("nathanielhall")
+
+lua require("lsp")
+
  
 set guifont=DankMono\ Nerd\ Font\ Regular:h12
 let g:airline_powerline_fonts = 1
