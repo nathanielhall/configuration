@@ -19,6 +19,13 @@ set splitright
 call plug#begin('~/.vim/plugged')
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+
+" Themes
+Plug 'gruvbox-community/gruvbox'
+"Plug 'herrbischoff/cobalt2.vim'
+Plug 'gertjanreynaert/cobalt2-vim-theme'
+
+
 " Native LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
@@ -36,12 +43,16 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'  
 
 " javascript / jsx
-Plug 'pangloss/vim-javascript'
+"Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 
- "typescript / jsx
-Plug 'leafgarland/typescript-vim'
+Plug 'pangloss/vim-javascript'
+"Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+
+ "typescript / jsx
+"Plug 'leafgarland/typescript-vim'
+"Plug 'peitalin/vim-jsx-typescript'
 
 " Status Bar
 Plug 'vim-airline/vim-airline'
@@ -56,11 +67,6 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
 
 
-"Plug 'gruvbox-community/gruvbox'
-
-" Cobalt2 - Wes Bos 
-"Plug 'herrbischoff/cobalt2.vim'
-Plug 'gertjanreynaert/cobalt2-vim-theme'
 call plug#end()
 
 
