@@ -48,7 +48,11 @@
   },
 
   /** VIM */
+  // TODO:
+  // browse buffer (back/next)
   "vim.leader": "<space>",
+  // "vim.sneak": true,
+  // "vim.easymotion": true,
 
 
   "vim.insertModeKeyBindings": [

@@ -25,14 +25,14 @@ lua require("nathanielhall")
 
 " Git
 nnoremap <leader>gb :lua require('telescope.builtin').git_branches(require('telescope.themes').get_dropdown({previewer=false}))<cr>
-nnoremap <leader>gs <cmd>lua require('telescope.builtin').git_stash()<cr>
+" nnoremap <leader>gs <cmd>lua require('telescope.builtin').git_stash()<cr>
 nnoremap <leader>gc <cmd>lua require('telescope.builtin').git_commits()<cr>
 nnoremap <leader>ga <cmd>lua require('telescope.builtin').git_bcommits()<cr>
 nnoremap <leader>gt <cmd>lua require('telescope.builtin').git_status()<cr>
 
 " Grep
 nnoremap <leader>lg <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>gs <cmd>lua require('telescope.builtin').grep_string()<cr>
+nnoremap <leader>gg <cmd>lua require('telescope.builtin').grep_string()<cr>
 nnoremap <leader>gf <cmd>lua require('telescope.builtin').git_files()<cr>
 
 
@@ -58,7 +58,7 @@ nnoremap <leader>fn <cmd>lua require('telescope.builtin').buffers()<cr>
 
 
 
-nnoremap <leader>ff :lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({previewer=false}))<cr>
+nnoremap <leader>ff :lua require('telescope.builtin').git_files(require('telescope.themes').get_dropdown({previewer=false}))<cr>
 
 nnoremap <leader>fs <cmd>lua require('telescope.builtin').find_files()<cr>
 
@@ -71,7 +71,7 @@ nnoremap <leader>fa :lua require('telescope.builtin').file_browser(require('tele
 
 
 
-nnoremap <leader>vrc :lua require('nathanielhall.telescope').search_dotfiles()<CR>
+nnoremap <leader>vrc :lua require('nathanielhall.telescope').search_dotfiles(require('telescope.themes').get_dropdown({previewer=false}))<CR>
 
 nnoremap <leader>vx <cmd>lua require('nathanielhall.telescope').git_branches()<cr>
 

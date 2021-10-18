@@ -1,14 +1,17 @@
-
 [
-
   // =============================
   // GIT
   // =============================
-  // {
-  //   "key": "alt+up",
-  //   "command": "git.stage",
-  //   "when": "workbench.scm.active"
-  // },
+  {
+    "key": "ctrl+a",
+    "command": "git.stage",
+    "when": "workbench.scm.active"
+  },
+  {
+    "key": "ctrl+r",
+    "command": "git.unstage",
+    "when": "workbench.scm.active"
+  },
   // =============================
   // Terminal toggling 
   // =============================
@@ -18,11 +21,6 @@
     "command": "workbench.action.terminal.focus",
     "when": "!terminalFocus"
   },
-  // {
-  //   "key": "ctrl+shift+f",
-  //   "command": "workbench.action.focusActiveEditorGroup",
-  //   "when": "terminalFocus"
-  // },
   {
     "key": "ctrl+shift+l",
     "command": "workbench.files.action.showActiveFileInExplorer"

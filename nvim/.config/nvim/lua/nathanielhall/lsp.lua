@@ -67,6 +67,8 @@ nvim_lsp.tsserver.setup {
 local filetypes = {
     typescript = "eslint",
     typescriptreact = "eslint",
+    javascriptreact = "eslint",
+    javascript = "eslint"
 }
 local linters = {
     eslint = {
@@ -92,7 +94,9 @@ local formatters = {
 }
 local formatFiletypes = {
     typescript = "prettier",
-    typescriptreact = "prettier"
+    typescriptreact = "prettier",
+    javascriptreact = "prettier",
+    javascript = "prettier"
 }
 nvim_lsp.diagnosticls.setup {
     on_attach = on_attach,

@@ -14,7 +14,7 @@ set wildignore+=**/.git/*
 
 set splitbelow
 set splitright
-
+set lazyredraw
 
 call plug#begin('~/.vim/plugged')
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
