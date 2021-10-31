@@ -13,9 +13,9 @@
     "when": "workbench.scm.active"
   },
   // =============================
-  // Terminal toggling 
+  // Terminal toggling
   // =============================
-  // 
+  //
   {
     "key": "ctrl+shift+f",
     "command": "workbench.action.terminal.focus",
@@ -109,108 +109,24 @@
     "key": "cmd+\\",
     "command": "-workbench.action.splitEditor"
   },
-  // ==============================================================
-  // tmux like Terminal keybindings
-  // NOTE: do not use with tmux 
-  // ==============================================================
-  /*
-  , {
-    "key": "ctrl+b right",
-    "command": "workbench.action.terminal.focusNextPane",
-    "when": "terminalFocus && terminalProcessSupported"
-  },
-  {
-    "key": "alt+cmd+right",
-    "command": "-workbench.action.terminal.focusNextPane",
-    "when": "terminalFocus && terminalProcessSupported"
-  },
-  {
-    "key": "ctrl+b left",
-    "command": "workbench.action.terminal.focusPreviousPane",
-    "when": "terminalFocus && terminalProcessSupported"
-  },
-  {
-    "key": "alt+cmd+left",
-    "command": "-workbench.action.terminal.focusPreviousPane",
-    "when": "terminalFocus && terminalProcessSupported"
-  },
 
-  // kill active window or pane
+  // Replace ctrl+tab with a smaller hand stretch using ctrl+n
   {
-    "key": "ctrl+b x",
-    "command": "workbench.action.terminal.kill"
-  },
-  // Rename Pane
-  {
-    "key": "ctrl+b ,",
-    "command": "workbench.action.terminal.rename"
-  },
-  // New Window
-  {
-    "key": "ctrl+b c",
-    "command": "workbench.action.terminal.new"
+    "key": "ctrl+n",
+    "command": "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup"
   },
   {
-    "key": "ctrl+shift+`",
-    "command": "-workbench.action.terminal.new"
+    "key": "ctrl+tab",
+    "command": "-workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup"
   },
   {
-    "key": "ctrl+b 1",
-    "command": "workbench.action.terminal.focusAtIndex1"
+    "key": "ctrl+n",
+    "command": "workbench.action.quickOpenNavigateNextInEditorPicker",
+    "when": "inEditorsPicker && inQuickOpen"
   },
   {
-    "key": "ctrl+b 2",
-    "command": "workbench.action.terminal.focusAtIndex2"
-  },
-  {
-    "key": "ctrl+b 3",
-    "command": "workbench.action.terminal.focusAtIndex3"
-  },
-  {
-    "key": "ctrl+b 4",
-    "command": "workbench.action.terminal.focusAtIndex4"
-  },
-  {
-    "key": "ctrl+b 5",
-    "command": "workbench.action.terminal.focusAtIndex5"
-  },
-  {
-    "key": "ctrl+b 6",
-    "command": "workbench.action.terminal.focusAtIndex6"
-  },
-  {
-    "key": "ctrl+b 7",
-    "command": "workbench.action.terminal.focusAtIndex7"
-  },
-  {
-    "key": "ctrl+b 8",
-    "command": "workbench.action.terminal.focusAtIndex8"
-  },
-  {
-    "key": "ctrl+b 9",
-    "command": "workbench.action.terminal.focusAtIndex9"
-  },
-  // New Window
-  {
-    "key": "ctrl+b c",
-    "command": "workbench.action.terminal.openNativeConsole",
-    "when": "!terminalFocus"
-  },
-  {
-    "key": "shift+cmd+c",
-    "command": "-workbench.action.terminal.openNativeConsole",
-    "when": "!terminalFocus"
-  },
-  // Split Pane (vertical)
-  {
-    "key": "ctrl+b shift+5",
-    "command": "workbench.action.terminal.split",
-    "when": "terminalFocus && terminalProcessSupported"
-  },
-  {
-    "key": "cmd+\\",
-    "command": "-workbench.action.terminal.split",
-    "when": "terminalFocus && terminalProcessSupported"
+    "key": "ctrl+tab",
+    "command": "-workbench.action.quickOpenNavigateNextInEditorPicker",
+    "when": "inEditorsPicker && inQuickOpen"
   }
-  /**/
 ]

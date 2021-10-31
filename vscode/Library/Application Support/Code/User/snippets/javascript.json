@@ -16,6 +16,21 @@
     "description": "show debug values inside <pre>",
     "body": ["<pre>{JSON.stringify($1, null, 2)}</pre>"]
   },
+  "function component": {
+    "prefix": "fc",
+    "description": "function component ",
+    "body": [
+      "import React from 'react'",
+      "",
+      "export const ${TM_FILENAME_BASE/(?:^|_)([a-z])|(\\.test)|/${1:/upcase}/g} = () => {",
+      "",
+      "\treturn(",
+      "\t\t$0",
+      "\t)",
+      "}",
+      ""
+    ]
+  },
   "new test file": {
     "prefix": "newtest",
     "description": "Test setup",

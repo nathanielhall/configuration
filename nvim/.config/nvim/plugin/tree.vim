@@ -36,8 +36,11 @@ hi! EndOfBuffer guibg=NONE
 
 " enabling this will break color settings!
 "let g:nvim_tree_highlight_opened_files = 1
+"
+"Default Actions
+"https://github.com/kyazdani42/nvim-tree.lua#default-actions
 
-nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <leader>e :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>z :NvimTreeFindFile<CR>
 
@@ -45,7 +48,6 @@ nnoremap <leader>z :NvimTreeFindFile<CR>
 " adding to vim-airline's statusline
 let g:webdevicons_enable_airline_statusline = 1
 
-" vu ^
 "let g:nvim_tree_git_hl
   let g:nvim_tree_icons = {
       \ 'default':        '',

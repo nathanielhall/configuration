@@ -1,4 +1,3 @@
-
 lua require("nathanielhall")
 
 " LSP TODO:
@@ -18,9 +17,11 @@ lua require("nathanielhall")
 "   - file browser
 "   - git files
 "
-"OPTIONS ------------------------- 
-
-
+"
+" My Finders ------------------------- 
+" gg - Grep string over cursor"
+" ff - git files
+" fb - buffers (in dropdown)
 
 
 " Git
@@ -33,8 +34,6 @@ nnoremap <leader>gt <cmd>lua require('telescope.builtin').git_status()<cr>
 " Grep
 nnoremap <leader>lg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>gg <cmd>lua require('telescope.builtin').grep_string()<cr>
-nnoremap <leader>gf <cmd>lua require('telescope.builtin').git_files()<cr>
-
 
 " LSP
 nnoremap <leader>fr <cmd>lua require('telescope.builtin').lsp_references()<cr>
@@ -65,7 +64,7 @@ nnoremap <leader>fs <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
 nnoremap <leader>pw :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
 
-nnoremap <leader>ft :lua require('telescope.builtin').live_grep(require('telescope.themes').get_dropdown())<cr>
+"nnoremap <leader>ft :lua require('telescope.builtin').live_grep(require('telescope.themes').get_dropdown())<cr>
 nnoremap <leader>fa :lua require('telescope.builtin').file_browser(require('telescope.themes').get_dropdown({previewer=false}))<cr>
 
 

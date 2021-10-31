@@ -48,12 +48,9 @@
   },
 
   /** VIM */
-  // TODO:
-  // browse buffer (back/next)
   "vim.leader": "<space>",
   // "vim.sneak": true,
   // "vim.easymotion": true,
-
 
   "vim.insertModeKeyBindings": [
     {
@@ -64,38 +61,63 @@
   "vim.visualModeKeyBindings": [
     {
       "before": ["<leader>", "c"],
+      "commands": ["editor.action.commentLine"],
+      "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+      "before": ["<leader>", "v"],
       "commands": ["editor.action.copyLinesDownAction"],
       "when": "editorTextFocus && !editorReadonly"
     }
   ],
   "vim.normalModeKeyBindings": [
     {
-      "before": ["<leader>", "b"],
-      "commands": ["workbench.action.navigateBack"]
+      "before": ["<leader>", "w"],
+      "after": [":", "w", "<CR>"]
     },
     {
-      "before": ["<leader>", "n"],
-      "commands": ["workbench.action.navigateForward"]
+      "before": ["H"],
+      "after": ["^"]
     },
     {
-        "before": ["H"],
-        "after": ["^"]
+      "before": ["L"],
+      "after": ["$"]
     },
     {
-        "before": ["L"],
-        "after": ["$"]
+      "before": ["Y"],
+      "after": ["y", "$"]
     },
-    {
-        "before": ["Y"],
-        "after": ["y", "$"]
-    },
+    // ======================================================
+    //  PICKERS
     {
       "before": ["<leader>", "f"],
       "commands": ["workbench.action.quickOpen"]
     },
+    // TODO: determine if these are better than existing ctrl+pageup/down
+    {
+      "before": ["<leader>", "h"],
+      "commands": ["workbench.action.openPreviousRecentlyUsedEditor"]
+    },
+    {
+      "before": ["<leader>", "l"],
+      "commands": ["workbench.action.openNextRecentlyUsedEditor"]
+    },
+    {
+      "before": ["<leader>", "k"],
+      "commands": ["workbench.action.quickOpenPreviousRecentlyUsedEditor"]
+    },
+    // ctrl+n replaces ctrl+tab to reduce hand stretch (lives in keybinding file)
+    // ======================================================
+
+    // These launch outside editor, to get back use ctrl+shift+y
     {
       "before": ["<leader>", "s"],
       "commands": ["workbench.action.findInFiles"]
+    },
+    {
+      "before": ["<leader>", "g"],
+      "commands": ["workbench.view.scm"],
+      "when": "workbench.scm.active"
     },
     {
       "before": ["<leader>", "t"],
@@ -106,12 +128,6 @@
       "commands": ["workbench.view.explorer"],
       "when": "viewContainer.workbench.view.explorer.enabled"
     },
-    {
-      "before": [",", "n"],
-      "commands": ["workbench.action.toggleSidebarVisibility"],
-      "when": "!viewContainer.workbench.view.explorer.enabled"
-    },
-
     {
       "before": ["<C-h>"],
       "commands": ["workbench.action.navigateLeft"]
@@ -137,17 +153,17 @@
       "commands": ["workbench.action.splitEditorRight"]
     },
     {
+      "before": [",", "n"],
+      "commands": ["workbench.action.toggleSidebarVisibility"],
+      "when": "!viewContainer.workbench.view.explorer.enabled"
+    },
+    {
       "before": ["<leader>", "-"],
       "commands": ["workbench.action.decreaseViewSize"]
     },
     {
       "before": ["<leader>", "="],
       "commands": ["workbench.action.increaseViewSize"]
-    },
-    {
-      "before": ["<leader>", "g"],
-      "commands": ["workbench.view.scm"],
-      "when": "workbench.scm.active"
     }
   ],
   "editor.lineNumbers": "relative",
@@ -216,7 +232,7 @@
   "editor.insertSpaces": false,
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
   "editor.wordWrap": "off",
-  "workbench.editor.showTabs": false,
+  "workbench.editor.showTabs": false
   // "redhat.telemetry.enabled": false,
   // "security.workspace.trust.untrustedFiles": "open"
 }
