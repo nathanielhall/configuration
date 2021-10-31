@@ -1,146 +1,125 @@
--- https://jose-elias-alvarez.medium.com/configuring-neovims-lsp-client-for-typescript
-local nvim_lsp = require("lspconfig")
-local format_async = function(err, _, result, _, bufnr)
-    if err ~= nil or result == nil then return end
+vim.api.nvim_exec([[
+    autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+    autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+    " autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global=1
+    " autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+    " autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+    " autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+    " autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+    " autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+    " autocmd BufRead,BufNewFile *.md setlocal spell
+    ]], true)
     
-    if not vim.api.nvim_buf_get_option(bufnr, "modified") then
-        local view = vim.fn.winsaveview()
-        vim.lsp.util.apply_text_edits(result, bufnr)
-        vim.fn.winrestview(view)
-        if bufnr == vim.api.nvim_get_current_buf() then
-            vim.api.nvim_command("noautocmd :update")
-        end
-    end
-end
-vim.lsp.handlers["textDocument/formatting"] = format_async
-_G.lsp_organize_imports = function()
-    local params = {
-        command = "_typescript.organizeImports",
-        arguments = {vim.api.nvim_buf_get_name(0)},
-        title = ""
-    }
-    vim.lsp.buf.execute_command(params)
-end
-local on_attach = function(client, bufnr)
-    local buf_map = vim.api.nvim_buf_set_keymap
-    vim.cmd("command! LspDef lua vim.lsp.buf.definition()")
-    vim.cmd("command! LspFormatting lua vim.lsp.buf.formatting()")
-    vim.cmd("command! LspCodeAction lua vim.lsp.buf.code_action()")
-    vim.cmd("command! LspHover lua vim.lsp.buf.hover()")
-    vim.cmd("command! LspRename lua vim.lsp.buf.rename()")
-    vim.cmd("command! LspOrganize lua lsp_organize_imports()")
-    vim.cmd("command! LspRefs lua vim.lsp.buf.references()")
-    vim.cmd("command! LspTypeDef lua vim.lsp.buf.type_definition()")
-    vim.cmd("command! LspImplementation lua vim.lsp.buf.implementation()")
-    vim.cmd("command! LspDiagPrev lua vim.lsp.diagnostic.goto_prev()")
-    vim.cmd("command! LspDiagNext lua vim.lsp.diagnostic.goto_next()")
-    vim.cmd(
-        "command! LspDiagLine lua vim.lsp.diagnostic.show_line_diagnostics()")
-    vim.cmd("command! LspSignatureHelp lua vim.lsp.buf.signature_help()")
-buf_map(bufnr, "n", "gd", ":LspDef<CR>", {silent = true})
-    buf_map(bufnr, "n", "gr", ":LspRename<CR>", {silent = true})
-    buf_map(bufnr, "n", "gR", ":LspRefs<CR>", {silent = true})
-    buf_map(bufnr, "n", "gy", ":LspTypeDef<CR>", {silent = true})
-    buf_map(bufnr, "n", "K", ":LspHover<CR>", {silent = true})
-    buf_map(bufnr, "n", "gs", ":LspOrganize<CR>", {silent = true})
-    buf_map(bufnr, "n", "[a", ":LspDiagPrev<CR>", {silent = true})
-    buf_map(bufnr, "n", "]a", ":LspDiagNext<CR>", {silent = true})
-    buf_map(bufnr, "n", "ga", ":LspCodeAction<CR>", {silent = true})
-    buf_map(bufnr, "n", "<Leader>a", ":LspDiagLine<CR>", {silent = true})
-    buf_map(bufnr, "i", "<C-x><C-x>", "<cmd> LspSignatureHelp<CR>",
-              {silent = true})
-if client.resolved_capabilities.document_formatting then
-        vim.api.nvim_exec([[
-         augroup LspAutocommands
-             autocmd! * <buffer>
-             autocmd BufWritePost <buffer> LspFormatting
-         augroup END
-         ]], true)
-    end
-end
-nvim_lsp.tsserver.setup {
-    on_attach = function(client)
-        client.resolved_capabilities.document_formatting = false
-        on_attach(client)
-    end
-}
-local filetypes = {
-    typescript = "eslint",
-    typescriptreact = "eslint",
-    javascriptreact = "eslint",
-    javascript = "eslint"
-}
-local linters = {
-    eslint = {
-        sourceName = "eslint",
-        command = "eslint_d",
-        rootPatterns = {".eslintrc.js", "package.json"},
-        debounce = 100,
-        args = {"--stdin", "--stdin-filename", "%filepath", "--format", "json"},
-        parseJson = {
-            errorsRoot = "[0].messages",
-            line = "line",
-            column = "column",
-            endLine = "endLine",
-            endColumn = "endColumn",
-            message = "${message} [${ruleId}]",
-            security = "severity"
-        },
-        securities = {[2] = "error", [1] = "warning"}
-    }
-}
-local formatters = {
-    prettier = {command = "prettier", args = {"--stdin-filepath", "%filepath"}}
-}
-local formatFiletypes = {
-    typescript = "prettier",
-    typescriptreact = "prettier",
-    javascriptreact = "prettier",
-    javascript = "prettier"
-}
-nvim_lsp.diagnosticls.setup {
-    on_attach = on_attach,
-    filetypes = vim.tbl_keys(filetypes),
-    init_options = {
-        filetypes = filetypes,
-        linters = linters,
-        formatters = formatters,
-        formatFiletypes = formatFiletypes
-    }
+    local cmp = require'cmp'
+    
+    cmp.setup({
+      snippet = {
+        expand = function(args)
+          vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` user.
+        end,
+      },
+      mapping = {
+        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-f>'] = cmp.mapping.scroll_docs(4),
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-e>'] = cmp.mapping.close(),
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+      },
+      sources = {
+        { name = 'nvim_lsp' },
+        { name = 'vsnip' },
+        { name = 'buffer' },
+        { name = 'path' },
+        { name = 'calc' },
+        { name = 'treesitter' },
+        { name = 'tags' },
+      },
+      formatting = {
+        format = function(entry, vim_item)
+          -- fancy icons and a name of kind
+          vim_item.kind = require("lspkind").presets.default[vim_item.kind] .. " " .. vim_item.kind
+    
+          -- set a name for each source
+          vim_item.menu = ({
+            buffer = "[Buffer]",
+            nvim_lsp = "[LSP]",
+            luasnip = "[LuaSnip]",
+            nvim_lua = "[Lua]",
+            latex_symbols = "[Latex]",
+          })[entry.source.name]
+          return vim_item
+        end,
+      },
+    })
+
+local nvim_lsp = require('lspconfig')
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+require('lspkind').init()
+
+-- Diagnostics symbols for display in the sign column.
+vim.cmd('sign define LspDiagnosticsSignError text=')
+vim.cmd('sign define LspDiagnosticsSignWarning text=')
+vim.cmd('sign define LspDiagnosticsSignInformation text=')
+vim.cmd('sign define LspDiagnosticsSignHint text=')
+vim.cmd('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
+
+ require'lspconfig'.html.setup {
+     filetypes = {"html", "eruby"},
+   capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+ }
+
+require'lspconfig'.tsserver.setup{
+  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 }
 
-
--- use .ts snippets in .tsx files
-vim.g.vsnip_filetypes = {
-    typescriptreact = {"typescript"}
-}
-require"compe".setup {
-    preselect = "always",
-    source = {
-        path = true,
-        buffer = true,
-        vsnip = true,
-        nvim_lsp = true,
-        nvim_lua = true
+require'lspconfig'.solargraph.setup{
+  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  flags = {
+    debounce_text_changes = 150,
+  },
+  settings = {
+    solargraph = {
+      diagnostics = true
     }
+  }
 }
-local t = function(str)
-    return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
-_G.tab_complete = function()
-    if vim.fn.pumvisible() == 1 then
-        return vim.fn["compe#confirm"]()
-    elseif vim.fn.call("vsnip#available", {1}) == 1 then
-        return t("<Plug>(vsnip-expand-or-jump)")
-    else
-        return t("<Tab>")
-    end
-end
-vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("i", "<C-Space>", "compe#complete()",
-                        {expr = true, silent = true})
-vim.api.nvim_set_keymap("i", "<CR>", [[compe#confirm("<CR>")]],
-                        {expr = true, silent = true})
-vim.api.nvim_set_keymap("i", "<C-e>", [[compe#close("<C-e>")]],
-                        {expr = true, silent = true})
+
+ require'lspconfig'.cssls.setup{
+   capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+ }
+
+-- require'lspconfig'.dockerls.setup{
+--   capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- }
+-- require'lspconfig'.jsonls.setup{
+--   commands = {
+--     Format = {
+--       function()
+--         vim.lsp.buf.range_formatting({},{0,0},{vim.fn.line("$"),0})
+--       end
+--     }
+--   },
+--   capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- }
+-- require'lspconfig'.yamlls.setup{
+--   capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- }
+-- require'lspconfig'.vimls.setup{
+--   capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- }
+
+
+-- LSP
+vim.api.nvim_set_keymap('n', '[a', ':lua vim.lsp.diagnostic.goto_prev()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', ']a', ':lua vim.lsp.diagnostic.goto_next()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', 'ga', ':lua vim.lsp.diagnostic.code_action()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', 'gd', ':lua vim.lsp.buf.definition()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', 'gf', ':lua vim.lsp.buf.formatting()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', 'K', ':lua vim.lsp.buf.hover()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', 'gr', ':lua vim.lsp.buf.rename()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', 'gR', ':lua vim.lsp.buf.references()<CR>', {noremap = true, silent = true})
+-- vim.api.nvim_set_keymap('n', '', ':lua vim.lsp.buf.document_symbol()<CR>', {noremap = true, silent = true})
+--
+--

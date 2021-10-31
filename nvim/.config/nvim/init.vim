@@ -1,4 +1,3 @@
-
 " TODO copy vimrc settings here and remove following lines
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
@@ -19,22 +18,27 @@ set lazyredraw
 call plug#begin('~/.vim/plugged')
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+" LSP
+Plug 'neovim/nvim-lspconfig'
+Plug 'onsails/lspkind-nvim'
+
+" Autocomplete
+Plug 'hrsh7th/nvim-cmp', {'branch': 'main'}
+Plug 'hrsh7th/cmp-nvim-lsp', {'branch': 'main'}
+Plug 'hrsh7th/cmp-buffer', {'branch': 'main'}
+Plug 'hrsh7th/cmp-vsnip', {'branch': 'main'}
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/cmp-path', {'branch': 'main'}
+Plug 'hrsh7th/cmp-calc', {'branch': 'main'}
+Plug 'ray-x/cmp-treesitter'
+Plug 'quangnguyen30192/cmp-nvim-tags', {'branch': 'main'}
+Plug 'windwp/nvim-autopairs'
+" Plug 'glepnir/lspsaga.nvim'
 
 " Themes
 Plug 'gruvbox-community/gruvbox'
 "Plug 'herrbischoff/cobalt2.vim'
 Plug 'gertjanreynaert/cobalt2-vim-theme'
-
-
-" Native LSP
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-compe'
-Plug 'glepnir/lspsaga.nvim'
-
-" Utils
-Plug 'scrooloose/nerdcommenter'
-Plug 'theprimeagen/vim-be-good'
-Plug 'windwp/nvim-autopairs'
 
 " File Management
 Plug 'nvim-lua/popup.nvim'
@@ -66,6 +70,11 @@ Plug 'akinsho/nvim-bufferline.lua'
 Plug 'kyazdani42/nvim-web-devicons' 
 Plug 'kyazdani42/nvim-tree.lua'
 
+" Others
+Plug 'scrooloose/nerdcommenter'
+Plug 'theprimeagen/vim-be-good'
+
+Plug 'jose-elias-alvarez/nvim-lsp-ts-utils', {'branch': 'main'}
 
 call plug#end()
 
@@ -138,8 +147,8 @@ nnoremap <leader>n :bnext<cr>
 nnoremap <silent> gb :BufferLinePick<CR>
 
 " ===========================================================
-autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
-autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+"autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+"autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
 
 
