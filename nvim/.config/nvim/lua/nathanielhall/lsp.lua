@@ -110,6 +110,14 @@ require'lspconfig'.solargraph.setup{
 --   capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 -- }
 
+_G.lsp_organize_imports = function()
+    local params = {
+        command = "_typescript.organizeImports",
+        arguments = {vim.api.nvim_buf_get_name(0)},
+        title = ""
+    }
+    vim.lsp.buf.execute_command(params)
+end
 
 -- LSP
 vim.api.nvim_set_keymap('n', '[a', ':lua vim.lsp.diagnostic.goto_prev()<CR>', {noremap = true, silent = true})
@@ -120,6 +128,7 @@ vim.api.nvim_set_keymap('n', 'gf', ':lua vim.lsp.buf.formatting()<CR>', {noremap
 vim.api.nvim_set_keymap('n', 'K', ':lua vim.lsp.buf.hover()<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', 'gr', ':lua vim.lsp.buf.rename()<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', 'gR', ':lua vim.lsp.buf.references()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', 'gs', ':lua lsp_organize_imports()<CR>', {noremap = true, silent = true})
 -- vim.api.nvim_set_keymap('n', '', ':lua vim.lsp.buf.document_symbol()<CR>', {noremap = true, silent = true})
 --
 --

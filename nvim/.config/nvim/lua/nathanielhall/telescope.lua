@@ -27,7 +27,7 @@ local M = {}
 
 M.search_dotfiles = function(opts)
     require("telescope.builtin").find_files({
-        prompt_title = "< VimRC >",
+        prompt_title = "< Configuration >",
         cwd = "~/configuration",
         hidden = true,
         opts = opts
