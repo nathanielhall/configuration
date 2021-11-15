@@ -1,10 +1,11 @@
 {
-  "breadcrumbs.enabled": true,
   "editor.fontSize": 14,
   // "editor.scrollBeyondLastLine": false,
+  // editor.bracketPairColorization.enabled
+  "editor.bracketPairColorization.enabled": true,
   "editor.fontFamily": "'Dank Mono', 'fira code'",
   "editor.quickSuggestionsDelay": 30,
-  "editor.wordBasedSuggestions": false,
+  // "editor.wordBasedSuggestions": false,
   "editor.suggest.localityBonus": true,
   "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.lightbulb.enabled": false,
@@ -13,20 +14,18 @@
   "editor.fontLigatures": true,
   "editor.minimap.enabled": false,
 
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.suggestSelection": "recentlyUsed",
-    "editor.suggest.showKeywords": false
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.suggestSelection": "recentlyUsed",
-    "editor.suggest.showKeywords": false
-  },
-
+  // "[javascript]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  //   "editor.suggestSelection": "recentlyUsed",
+  //   "editor.suggest.showKeywords": false
+  // },
+  // "[typescript]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  //   "editor.suggestSelection": "recentlyUsed",
+  //   "editor.suggest.showKeywords": false
+  // },
   "workbench.colorTheme": "Cobalt2",
   "workbench.sideBar.location": "right",
-  "workbench.statusBar.visible": true,
   "workbench.settings.useSplitJSON": false,
   "workbench.settings.editor": "json", // always show json view
   "workbench.iconTheme": "vscode-icons",
@@ -48,6 +47,12 @@
   },
 
   /** VIM */
+  // TODO:
+  // - toggle group
+  // - move text block using j k
+  // - move panes / swap panes
+  // - file history
+
   "vim.leader": "<space>",
   // "vim.sneak": true,
   // "vim.easymotion": true,
@@ -59,6 +64,10 @@
     }
   ],
   "vim.visualModeKeyBindings": [
+    {
+      "before": ["<leader>", "p"],
+      "after": ["\"", "_", "d", "P"]
+    },
     {
       "before": ["<leader>", "c"],
       "commands": ["editor.action.commentLine"],
@@ -72,8 +81,47 @@
   ],
   "vim.normalModeKeyBindings": [
     {
-      "before": ["<leader>", "w"],
-      "after": [":", "w", "<CR>"]
+      "before": ["<leader>", "p"],
+      "after": ["\"", "_", "d", "P"]
+    },
+    {
+      "before": [",", "e", "n"],
+      "commands": ["explorer.newFile"],
+      "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+      "before": [",", "e", "f"],
+      "commands": ["explorer.newFolder"],
+      "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+      "before": [",", "g", "h"],
+      "commands": ["gitlens.openFileHistory"],
+      "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+      "before": [",", "g", "d"],
+      "commands": ["git.openChange"],
+      // "commands": ["gitlens.diffWithPrevious"],
+      "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+      "before": [",", "g", "b"],
+      "commands": ["gitlens.views.switchToBranch"],
+      "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+      "before": ["<leader>", "c"],
+      "commands": ["editor.action.commentLine"],
+      "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+      "before": ["<leader>", "<CR>"],
+      "commands": ["workbench.action.files.save"]
+    },
+    {
+      "before": ["<leader>", "S"],
+      "commands": ["workbench.action.files.saveWithoutFormatting"]
     },
     {
       "before": ["H"],
@@ -162,9 +210,17 @@
       "commands": ["workbench.action.decreaseViewSize"]
     },
     {
+      "before": [",", "-"],
+      "commands": ["workbench.action.decreaseViewHeight"]
+    },
+    {
       "before": ["<leader>", "="],
       "commands": ["workbench.action.increaseViewSize"]
-    }
+    },
+    {
+      "before": [",", "="],
+      "commands": ["workbench.action.increaseViewHeight"]
+    },
   ],
   "editor.lineNumbers": "relative",
 
@@ -222,6 +278,7 @@
 
   "editor.codeActionsOnSave": {
     // "source.organizeImports": true,
+    // "source.sortImports": true,
     "source.fixAll.eslint": true
   },
   "git.ignoreLegacyWarning": true,
@@ -230,9 +287,11 @@
   },
   "editor.cursorStyle": "line",
   "editor.insertSpaces": false,
-  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  // "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
   "editor.wordWrap": "off",
-  "workbench.editor.showTabs": false
+  "workbench.editor.showTabs": false,
+  "gitlens.views.branches.branches.layout": "list",
+  "breadcrumbs.enabled": false
   // "redhat.telemetry.enabled": false,
   // "security.workspace.trust.untrustedFiles": "open"
 }

@@ -53,10 +53,10 @@
   // =============================
   //           Sidebar
   // =============================
-  // Return to editor TODO: when editor is NOT focus
+  // Return to editor 
   {
     "key": "ctrl+shift+y",
-    "command": "workbench.action.focusLastEditorGroup",
+    "command": "workbench.action.focusActiveEditorGroup",
     "when": "!editorFocus"
   },
   {
@@ -128,5 +128,9 @@
     "key": "ctrl+tab",
     "command": "-workbench.action.quickOpenNavigateNextInEditorPicker",
     "when": "inEditorsPicker && inQuickOpen"
+  },
+  {
+    "key": "ctrl+;",
+    "command": "gitlens.views.switchToBranch"
   }
 ]
