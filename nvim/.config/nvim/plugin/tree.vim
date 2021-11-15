@@ -41,7 +41,7 @@ hi! EndOfBuffer guibg=NONE
 "https://github.com/kyazdani42/nvim-tree.lua#default-actions
 
 nnoremap <leader>e :NvimTreeToggle<CR>
-nnoremap <leader>r :NvimTreeRefresh<CR>
+" nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>z :NvimTreeFindFile<CR>
 
 " a list of groups can be found at `:help nvim_tree_highlight`
