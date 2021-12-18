@@ -26,7 +26,7 @@
     "command": "workbench.files.action.showActiveFileInExplorer"
   },
   {
-    "key": "ctrl+alt+n",
+    "key": "cmd+n",
     "command": "explorer.newFile"
   },
   {
@@ -55,9 +55,9 @@
   // =============================
   // Return to editor 
   {
-    "key": "ctrl+shift+y",
+    "key": "ctrl+h",
     "command": "workbench.action.focusActiveEditorGroup",
-    "when": "!editorFocus"
+    "when": "!editorFocus && sideBarFocus"
   },
   {
     "key": "ctrl+shift+g",

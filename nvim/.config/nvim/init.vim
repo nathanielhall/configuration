@@ -125,7 +125,8 @@ xnoremap <leader>p "_dP
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
+" nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
+nnoremap <Leader><CR> :w<CR>
 
 " Vim Split remaps
 nnoremap <C-J> <C-W><C-J>

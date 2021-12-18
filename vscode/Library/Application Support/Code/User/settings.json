@@ -14,16 +14,6 @@
   "editor.fontLigatures": true,
   "editor.minimap.enabled": false,
 
-  // "[javascript]": {
-  //   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  //   "editor.suggestSelection": "recentlyUsed",
-  //   "editor.suggest.showKeywords": false
-  // },
-  // "[typescript]": {
-  //   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  //   "editor.suggestSelection": "recentlyUsed",
-  //   "editor.suggest.showKeywords": false
-  // },
   "workbench.colorTheme": "Cobalt2",
   "workbench.sideBar.location": "right",
   "workbench.settings.useSplitJSON": false,
@@ -52,6 +42,7 @@
   // - move text block using j k
   // - move panes / swap panes
   // - file history
+  // - search for highlighted characters
 
   "vim.leader": "<space>",
   // "vim.sneak": true,
@@ -64,6 +55,14 @@
     }
   ],
   "vim.visualModeKeyBindings": [
+    {
+      "before": ["K"],
+      "commands": ["editor.action.moveLinesUpAction"]
+    },
+    {
+      "before": ["J"],
+      "commands": ["editor.action.moveLinesDownAction"]
+    },
     {
       "before": ["<leader>", "p"],
       "after": ["\"", "_", "d", "P"]
@@ -94,6 +93,7 @@
       "commands": ["explorer.newFolder"],
       "when": "editorTextFocus && !editorReadonly"
     },
+    // GIT bindings -----------
     {
       "before": [",", "g", "h"],
       "commands": ["gitlens.openFileHistory"],
@@ -108,6 +108,16 @@
     {
       "before": [",", "g", "b"],
       "commands": ["gitlens.views.switchToBranch"],
+      "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+      "before": [",", "g", "p"],
+      "commands": ["git.pull"],
+      "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+      "before": [",", "g", "f"],
+      "commands": ["git.fetch"],
       "when": "editorTextFocus && !editorReadonly"
     },
     {
@@ -220,7 +230,7 @@
     {
       "before": [",", "="],
       "commands": ["workbench.action.increaseViewHeight"]
-    },
+    }
   ],
   "editor.lineNumbers": "relative",
 
@@ -273,14 +283,35 @@
     "**/.build": true
   },
 
+  /** =============================================*/
   /** Formatting */
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // // These are all my auto-save configs
+  // // "editor.formatOnSave": true,
+  // // show eslint icon at bottom toolbar
+  // "eslint.alwaysShowStatus": true,
+  // "editor.codeActionsOnSave": {
+  //   // "source.organizeImports": true,
+  //   // "source.sortImports": true,
+  //   "source.fixAll.eslint": true
+  // },
 
+  "editor.formatOnSave": true,
+  // turn it off for JS and JSX, we will do this via eslint
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": false
+  },
+  // show eslint icon at bottom toolbar
+  "eslint.alwaysShowStatus": true,
+  // tell the ESLint plugin to run on save
   "editor.codeActionsOnSave": {
-    // "source.organizeImports": true,
-    // "source.sortImports": true,
     "source.fixAll.eslint": true
   },
+  /** =============================================*/
+
   "git.ignoreLegacyWarning": true,
   "gitlens.advanced.messages": {
     "suppressGitVersionWarning": true
