@@ -4,9 +4,6 @@ code --install-extension dbaeumer.vscode-eslint
 # https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
 code --install-extension esbenp.prettier-vscode
 
-# https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2
-code --install-extension CoenraadS.bracket-pair-colorizer-2
-
 # https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens
 code --install-extension eamodio.gitlens
 

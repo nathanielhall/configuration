@@ -1,4 +1,3 @@
-
 " TODO copy vimrc settings here and remove following lines
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
@@ -14,19 +13,32 @@ set wildignore+=**/.git/*
 
 set splitbelow
 set splitright
-
+set lazyredraw
 
 call plug#begin('~/.vim/plugged')
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-" Native LSP
+" LSP
 Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-compe'
-Plug 'glepnir/lspsaga.nvim'
+Plug 'onsails/lspkind-nvim'
 
-" Utils
-Plug 'scrooloose/nerdcommenter'
-Plug 'theprimeagen/vim-be-good'
+" Autocomplete
+Plug 'hrsh7th/nvim-cmp', {'branch': 'main'}
+Plug 'hrsh7th/cmp-nvim-lsp', {'branch': 'main'}
+Plug 'hrsh7th/cmp-buffer', {'branch': 'main'}
+Plug 'hrsh7th/cmp-vsnip', {'branch': 'main'}
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/cmp-path', {'branch': 'main'}
+Plug 'hrsh7th/cmp-calc', {'branch': 'main'}
+Plug 'ray-x/cmp-treesitter'
+Plug 'quangnguyen30192/cmp-nvim-tags', {'branch': 'main'}
+Plug 'windwp/nvim-autopairs'
+" Plug 'glepnir/lspsaga.nvim'
+
+" Themes
+Plug 'gruvbox-community/gruvbox'
+"Plug 'herrbischoff/cobalt2.vim'
+Plug 'gertjanreynaert/cobalt2-vim-theme'
 
 " File Management
 Plug 'nvim-lua/popup.nvim'
@@ -35,20 +47,20 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'  
 
 " javascript / jsx
-Plug 'pangloss/vim-javascript'
+"Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 
-" typescript / jsx
-Plug 'leafgarland/typescript-vim'
+Plug 'pangloss/vim-javascript'
+"Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+
+ "typescript / jsx
+"Plug 'leafgarland/typescript-vim'
+"Plug 'peitalin/vim-jsx-typescript'
 
 " Status Bar
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
-" Cobalt2 - Wes Bos
-Plug 'herrbischoff/cobalt2.vim'
-"Plug 'gruvbox-community/gruvbox'
 
 "  Git
 Plug 'tpope/vim-fugitive'
@@ -57,17 +69,17 @@ Plug 'tpope/vim-fugitive'
 Plug 'akinsho/nvim-bufferline.lua'
 Plug 'kyazdani42/nvim-web-devicons' 
 Plug 'kyazdani42/nvim-tree.lua'
+
+" Others
+Plug 'scrooloose/nerdcommenter'
+Plug 'theprimeagen/vim-be-good'
+
+Plug 'jose-elias-alvarez/nvim-lsp-ts-utils', {'branch': 'main'}
+
 call plug#end()
 
 
 colorscheme cobalt2
-
-
-" =======================
-"     Color Changes
-" =======================
-source $HOME/.config/nvim/plugin/colors.vim
-" =======================
 
 
 let mapleader = " "
@@ -113,7 +125,8 @@ xnoremap <leader>p "_dP
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
+" nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
+nnoremap <Leader><CR> :w<CR>
 
 " Vim Split remaps
 nnoremap <C-J> <C-W><C-J>
@@ -135,8 +148,8 @@ nnoremap <leader>n :bnext<cr>
 nnoremap <silent> gb :BufferLinePick<CR>
 
 " ===========================================================
-autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
-autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+"autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+"autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
 
 

@@ -14,6 +14,8 @@
 
 ### Setup Dotfiles only
 
+> files for Neovim, Tmux, Zsh, and VSCode
+
 ```
 brew install neovim tmux stow
 
@@ -28,6 +30,10 @@ brew install efm-langserver
 
 - Remove any existing files since these will become symlinks (e.g., .zshrc, .zprofile, .tmux.config)
 - Run `./install.sh` to stow folders defined in `$STOW_FOLDERS`
+
+### Example:
+
+<img src="screenshot.png" alt="App Screenshot" title="App Screenshot" width="900" />
 
 ### Resources on managing dotfiles using stow
 

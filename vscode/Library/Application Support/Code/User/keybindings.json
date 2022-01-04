@@ -1,0 +1,136 @@
+[
+  // =============================
+  // GIT
+  // =============================
+  {
+    "key": "ctrl+a",
+    "command": "git.stage",
+    "when": "workbench.scm.active"
+  },
+  {
+    "key": "ctrl+r",
+    "command": "git.unstage",
+    "when": "workbench.scm.active"
+  },
+  // =============================
+  // Terminal toggling
+  // =============================
+  //
+  {
+    "key": "ctrl+shift+f",
+    "command": "workbench.action.terminal.focus",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "ctrl+shift+l",
+    "command": "workbench.files.action.showActiveFileInExplorer"
+  },
+  {
+    "key": "cmd+n",
+    "command": "explorer.newFile"
+  },
+  {
+    "key": "ctrl+`",
+    "command": "workbench.action.toggleMaximizedPanel",
+    "when": "!terminalFocus"
+  },
+  // {
+  //   "key": "ctrl+`",
+  //   "command": "workbench.action.terminal.toggleTerminal",
+  //   "when": "terminalFocus"
+  // },
+  {
+    "key": "ctrl+shift+f",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+alt+m",
+    "command": "-workbench.action.terminal.toggleTerminal",
+    "when": "!terminalFocus"
+  },
+
+  // =============================
+  //           Sidebar
+  // =============================
+  // Return to editor 
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "!editorFocus && sideBarFocus"
+  },
+  {
+    "key": "ctrl+shift+g",
+    "command": "-workbench.view.scm",
+    "when": "!gitlens:disabled && config.gitlens.keymap == 'chorded'"
+  },
+  {
+    "key": "ctrl+shift+g",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "sideBarFocus"
+  },
+  {
+    "key": "cmd+shift+e",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "sideBarFocus"
+  },
+  {
+    "key": "cmd+shift+f",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "sideBarFocus"
+  },
+
+  // Toggle Activity Bar
+  {
+    "key": "ctrl+shift+d",
+    "command": "workbench.action.toggleActivityBarVisibility"
+  },
+  {
+    "key": "ctrl+alt+t",
+    "command": "workbench.action.togglePanelPosition"
+  },
+  {
+    "key": "ctrl+shift+left",
+    "command": "workbench.action.positionPanelLeft"
+  },
+  {
+    "key": "ctrl+shift+right",
+    "command": "workbench.action.positionPanelRight"
+  },
+  {
+    "key": "ctrl+shift+down",
+    "command": "workbench.action.positionPanelBottom"
+  },
+  //  ==============================================================
+  // tmux like window keybindings
+  // ==============================================================
+
+  {
+    "key": "cmd+\\",
+    "command": "-workbench.action.splitEditor"
+  },
+
+  // Replace ctrl+tab with a smaller hand stretch using ctrl+n
+  {
+    "key": "ctrl+n",
+    "command": "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup"
+  },
+  {
+    "key": "ctrl+tab",
+    "command": "-workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "workbench.action.quickOpenNavigateNextInEditorPicker",
+    "when": "inEditorsPicker && inQuickOpen"
+  },
+  {
+    "key": "ctrl+tab",
+    "command": "-workbench.action.quickOpenNavigateNextInEditorPicker",
+    "when": "inEditorsPicker && inQuickOpen"
+  },
+  {
+    "key": "ctrl+;",
+    "command": "gitlens.views.switchToBranch"
+  }
+]

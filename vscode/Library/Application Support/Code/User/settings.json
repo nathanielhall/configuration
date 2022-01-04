@@ -1,0 +1,328 @@
+{
+  "editor.fontSize": 14,
+  // "editor.scrollBeyondLastLine": false,
+  // editor.bracketPairColorization.enabled
+  "editor.bracketPairColorization.enabled": true,
+  "editor.fontFamily": "'Dank Mono', 'fira code'",
+  "editor.quickSuggestionsDelay": 30,
+  // "editor.wordBasedSuggestions": false,
+  "editor.suggest.localityBonus": true,
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "editor.lightbulb.enabled": false,
+  "editor.glyphMargin": false,
+  "editor.snippetSuggestions": "top",
+  "editor.fontLigatures": true,
+  "editor.minimap.enabled": false,
+
+  "workbench.colorTheme": "Cobalt2",
+  "workbench.sideBar.location": "right",
+  "workbench.settings.useSplitJSON": false,
+  "workbench.settings.editor": "json", // always show json view
+  "workbench.iconTheme": "vscode-icons",
+
+  "search.searchOnType": false,
+  "vsicons.dontShowNewVersionMessage": true,
+  "files.insertFinalNewline": false,
+
+  /** Terminal  */
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontFamily": "'Dank Mono', 'fira code'",
+
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true
+  },
+
+  /** VIM */
+  // TODO:
+  // - toggle group
+  // - move text block using j k
+  // - move panes / swap panes
+  // - file history
+  // - search for highlighted characters
+
+  "vim.leader": "<space>",
+  // "vim.sneak": true,
+  // "vim.easymotion": true,
+
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": ["K"],
+      "commands": ["editor.action.moveLinesUpAction"]
+    },
+    {
+      "before": ["J"],
+      "commands": ["editor.action.moveLinesDownAction"]
+    },
+    {
+      "before": ["<leader>", "p"],
+      "after": ["\"", "_", "d", "P"]
+    },
+    {
+      "before": ["<leader>", "c"],
+      "commands": ["editor.action.commentLine"],
+      "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+      "before": ["<leader>", "v"],
+      "commands": ["editor.action.copyLinesDownAction"],
+      "when": "editorTextFocus && !editorReadonly"
+    }
+  ],
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["<leader>", "p"],
+      "after": ["\"", "_", "d", "P"]
+    },
+    {
+      "before": [",", "e", "n"],
+      "commands": ["explorer.newFile"],
+      "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+      "before": [",", "e", "f"],
+      "commands": ["explorer.newFolder"],
+      "when": "editorTextFocus && !editorReadonly"
+    },
+    // GIT bindings -----------
+    {
+      "before": [",", "g", "h"],
+      "commands": ["gitlens.openFileHistory"],
+      "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+      "before": [",", "g", "d"],
+      "commands": ["git.openChange"],
+      // "commands": ["gitlens.diffWithPrevious"],
+      "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+      "before": [",", "g", "b"],
+      "commands": ["gitlens.views.switchToBranch"],
+      "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+      "before": [",", "g", "p"],
+      "commands": ["git.pull"],
+      "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+      "before": [",", "g", "f"],
+      "commands": ["git.fetch"],
+      "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+      "before": ["<leader>", "c"],
+      "commands": ["editor.action.commentLine"],
+      "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+      "before": ["<leader>", "<CR>"],
+      "commands": ["workbench.action.files.save"]
+    },
+    {
+      "before": ["<leader>", "S"],
+      "commands": ["workbench.action.files.saveWithoutFormatting"]
+    },
+    {
+      "before": ["H"],
+      "after": ["^"]
+    },
+    {
+      "before": ["L"],
+      "after": ["$"]
+    },
+    {
+      "before": ["Y"],
+      "after": ["y", "$"]
+    },
+    // ======================================================
+    //  PICKERS
+    {
+      "before": ["<leader>", "f"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    // TODO: determine if these are better than existing ctrl+pageup/down
+    {
+      "before": ["<leader>", "h"],
+      "commands": ["workbench.action.openPreviousRecentlyUsedEditor"]
+    },
+    {
+      "before": ["<leader>", "l"],
+      "commands": ["workbench.action.openNextRecentlyUsedEditor"]
+    },
+    {
+      "before": ["<leader>", "k"],
+      "commands": ["workbench.action.quickOpenPreviousRecentlyUsedEditor"]
+    },
+    // ctrl+n replaces ctrl+tab to reduce hand stretch (lives in keybinding file)
+    // ======================================================
+
+    // These launch outside editor, to get back use ctrl+shift+y
+    {
+      "before": ["<leader>", "s"],
+      "commands": ["workbench.action.findInFiles"]
+    },
+    {
+      "before": ["<leader>", "g"],
+      "commands": ["workbench.view.scm"],
+      "when": "workbench.scm.active"
+    },
+    {
+      "before": ["<leader>", "t"],
+      "commands": ["workbench.action.terminal.focus"]
+    },
+    {
+      "before": ["<leader>", "e"],
+      "commands": ["workbench.view.explorer"],
+      "when": "viewContainer.workbench.view.explorer.enabled"
+    },
+    {
+      "before": ["<C-h>"],
+      "commands": ["workbench.action.navigateLeft"]
+    },
+    {
+      "before": ["<C-j>"],
+      "commands": ["workbench.action.navigateDown"]
+    },
+    {
+      "before": ["<C-k>"],
+      "commands": ["workbench.action.navigateUp"]
+    },
+    {
+      "before": ["<C-l>"],
+      "commands": ["workbench.action.navigateRight"]
+    },
+    {
+      "before": [",", "w", "s"],
+      "commands": ["workbench.action.splitEditorDown"]
+    },
+    {
+      "before": [",", "w", "v"],
+      "commands": ["workbench.action.splitEditorRight"]
+    },
+    {
+      "before": [",", "n"],
+      "commands": ["workbench.action.toggleSidebarVisibility"],
+      "when": "!viewContainer.workbench.view.explorer.enabled"
+    },
+    {
+      "before": ["<leader>", "-"],
+      "commands": ["workbench.action.decreaseViewSize"]
+    },
+    {
+      "before": [",", "-"],
+      "commands": ["workbench.action.decreaseViewHeight"]
+    },
+    {
+      "before": ["<leader>", "="],
+      "commands": ["workbench.action.increaseViewSize"]
+    },
+    {
+      "before": [",", "="],
+      "commands": ["workbench.action.increaseViewHeight"]
+    }
+  ],
+  "editor.lineNumbers": "relative",
+
+  /** TODO Highlight */
+  "todohighlight.exclude": [
+    "**/node_modules/**",
+    "**/bower_components/**",
+    "**/dist/**",
+    // "**/build/**",   // commented for Planner
+    "**/.vscode/**",
+    "**/.github/**",
+    "**/_output/**",
+    "**/*.min.*",
+    "**/*.map",
+    "**/.next/**",
+    "**/vendor/**",
+    "**/public/**"
+  ],
+
+  "todohighlight.keywords": [
+    {
+      "text": "QUESTION:",
+      "color": "#ff0000",
+      "backgroundColor": "yellow",
+      "overviewRulerColor": "grey"
+    },
+    {
+      "text": "NOTE:"
+    }
+  ],
+
+  /** Git Lens */
+  "gitlens.currentLine.enabled": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.codeLens.enabled": false,
+  "gitlens.views.repositories.branches.layout": "list",
+
+  /** Possible Workspace settings */
+  "emmet.includeLanguages": {
+    "erb": "html"
+  },
+  "ruby.intellisense": "rubyLocate",
+  "emmet.triggerExpansionOnTab": true,
+
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/coverage": true,
+    "**/dist": true,
+    // "**/build": true
+    "**/.build": true
+  },
+
+  /** =============================================*/
+  /** Formatting */
+  // "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // // These are all my auto-save configs
+  // // "editor.formatOnSave": true,
+  // // show eslint icon at bottom toolbar
+  // "eslint.alwaysShowStatus": true,
+  // "editor.codeActionsOnSave": {
+  //   // "source.organizeImports": true,
+  //   // "source.sortImports": true,
+  //   "source.fixAll.eslint": true
+  // },
+
+  "editor.formatOnSave": true,
+  // turn it off for JS and JSX, we will do this via eslint
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": false
+  },
+  // show eslint icon at bottom toolbar
+  "eslint.alwaysShowStatus": true,
+  // tell the ESLint plugin to run on save
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  /** =============================================*/
+
+  "git.ignoreLegacyWarning": true,
+  "gitlens.advanced.messages": {
+    "suppressGitVersionWarning": true
+  },
+  "editor.cursorStyle": "line",
+  "editor.insertSpaces": false,
+  // "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  "editor.wordWrap": "off",
+  "workbench.editor.showTabs": false,
+  "gitlens.views.branches.branches.layout": "list",
+  "breadcrumbs.enabled": false
+  // "redhat.telemetry.enabled": false,
+  // "security.workspace.trust.untrustedFiles": "open"
+}

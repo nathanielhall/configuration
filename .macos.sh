@@ -43,8 +43,6 @@ brew install --cask font-fira-code
 echo "setup development environment"
 brew install tmux neovim stow
 
-# TODO: language servers, eslint_d, pretier, ..etc
-# TODO: npm typescript -g
 
 # echo "Generating an RSA token for GitHub"
 # mkdir -p ~/.ssh
@@ -57,14 +55,18 @@ brew install tmux neovim stow
 echo "cloning configuration files"
 git clone git@github.com:nathanielhall/configuration.git "${HOME}/configuration"
 
-# TODO: run ./install to run stow (add symlinks)
+echo "cloning Cobalt2 theme for iTerm"
+git clone https://github.com/wesbos/Cobalt2-iterm ~/.zsh/Cobalt2-iterm
 
-echo "clone zsh-autosuggestions"
+echo "cloning zsh-autosuggestions"
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 
-
-# TODO: Add specticle shortcut changes
-# TODO: iterm settings
+echo "installing language servers for Neovim (Neovim LSP)"
+npm i -g typescript typescript-language-server
+npm install -g eslint_d
+# brew install efm-langserver
+gem install solargraph  
+# TODO: there is more to put here
 
 ###############################################################################
 ###############################################################################
