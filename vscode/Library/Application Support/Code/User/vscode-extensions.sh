@@ -1,25 +1,18 @@
-# https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
-code --install-extension dbaeumer.vscode-eslint
+#!/usr/bin/env zsh
 
-# https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
-code --install-extension esbenp.prettier-vscode
-
-# https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens
 code --install-extension eamodio.gitlens
-
-# https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension esbenp.prettier-vscode
+code --install-extension matklad.rust-analyzer
+code --install-extension ms-azuretools.vscode-docker
+code --install-extension ms-dotnettools.csharp
+code --install-extension ms-python.python
+code --install-extension ms-python.vscode-pylance
+code --install-extension ms-vscode-remote.remote-containers
 code --install-extension vscode-icons-team.vscode-icons
-
-# https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight
-code --install-extension wayou.vscode-todo-highlight
-
-# https://marketplace.visualstudio.com/items?itemName=wesbos.theme-cobalt2
-code --install-extension wesbos.theme-cobalt2
-
-# https://marketplace.visualstudio.com/items?itemName=vscodevim.vim
 code --install-extension vscodevim.vim
-
-
+code --install-extension wayou.vscode-todo-highlight
+code --install-extension wesbos.theme-cobalt2
 echo 
 echo "listing all extensions installed..."
 code --list-extensions
