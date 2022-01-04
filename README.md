@@ -1,6 +1,6 @@
 # Configuration
 
-> All the files needed to setup a new machine and synchonize change to dotfiles across devices.
+> All the files needed to setup a new machine and synchonize dotfiles across devices.
 
 ### Setup new machine
 
