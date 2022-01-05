@@ -44,6 +44,12 @@ brew install efm-langserver
 ### iTerm Setup
 
 - Dank Mono Font patched using font patcher with Docker: [Nerd Fonts: Option 8 - Patch your own font](https://github.com/ryanoasis/nerd-fonts#option-8-patch-your-own-font)
+  - $ `docker run -v ~/nerd-fonts/in:/in -v ~/nerd-fonts/out:/out nerdfonts/patcher --fontawesome --octicons`
+  - Font 14 (vertical spacing: 120)
 - [Cobalt Theme by Wes Bos](https://github.com/wesbos/Cobalt2-iterm)
   - In iTerm2 access the Preferences pane on the Profiles tab.
   - Under the Colors tab import the cobalt2.itermcolors file via the Load Presets drop-down.
+
+#### Todo
+
+- [ ] Remove
