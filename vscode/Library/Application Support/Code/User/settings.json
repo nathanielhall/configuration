@@ -285,7 +285,8 @@
 
   /** =============================================*/
   /** Formatting */
-  // "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // "editor.defaultFormatter": "vscode.typescript-language-features",
   // // These are all my auto-save configs
   // // "editor.formatOnSave": true,
   // // show eslint icon at bottom toolbar

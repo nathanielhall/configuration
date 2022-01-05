@@ -132,5 +132,10 @@
   {
     "key": "ctrl+;",
     "command": "gitlens.views.switchToBranch"
+  },
+  {
+    "key": "cmd+k",
+    "command": "editor.action.showDefinitionPreviewHover",
+    "when": "!terminalFocus && editorFocus"
   }
 ]

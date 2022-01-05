@@ -1,29 +1,5 @@
 lua require("nathanielhall")
 
-" LSP TODO:
-" Disable features while in comments (code completion, etc)
-
-
-" ============================================"
-" TODO: 
-" how to best display each finder
-" ============================================"
-
-"Types of finders needed:
-" - match for ctrl+p
-" - match for search
-" --------------------
-" - nice to have...
-"   - file browser
-"   - git files
-"
-"
-" My Finders ------------------------- 
-" gg - Grep string over cursor"
-" ff - git files
-" fb - buffers (in dropdown)
-
-
 " Git
 nnoremap <leader>gb :lua require('telescope.builtin').git_branches(require('telescope.themes').get_dropdown({previewer=false}))<cr>
 " nnoremap <leader>gs <cmd>lua require('telescope.builtin').git_stash()<cr>
@@ -49,9 +25,9 @@ nnoremap <leader>fl <cmd>lua require('telescope.builtin').quickfix()<cr>
 
 "nnoremap <leader>fo <cmd>lua require('telescope.builtin').oldfiles()<cr>
 nnoremap <leader>fo :lua require('telescope.builtin').oldfiles(require('telescope.themes').get_dropdown({previewer=false}))<cr>
-nnoremap <leader>fb :lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown({previewer=false}))<cr>
+nnoremap <C-n> :lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown({previewer=false}))<cr>
 
-nnoremap <leader>fn <cmd>lua require('telescope.builtin').buffers()<cr>
+" nnoremap <leader>fn <cmd>lua require('telescope.builtin').buffers()<cr>
 
 " ============================================"
 

@@ -125,7 +125,6 @@ xnoremap <leader>p "_dP
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-" nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
 nnoremap <Leader><CR> :w<CR>
 
 " Vim Split remaps
@@ -142,10 +141,15 @@ nnoremap <Leader>- :vertical resize -5<CR>
 noremap <Leader>rp :resize 100<CR>
 
 nnoremap <leader>x :!chmod +x %<CR>
+
 nnoremap <leader>b :bprev<cr>
 nnoremap <leader>n :bnext<cr>
 
 nnoremap <silent> gb :BufferLinePick<CR>
+
+nmap <leader>gs :G<CR>
+nmap <leader>gh :diffget //3<CR>
+nmap <leader>gu :diffget //2<CR>
 
 " ===========================================================
 "autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart

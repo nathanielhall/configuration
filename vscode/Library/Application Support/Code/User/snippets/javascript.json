@@ -1,7 +1,7 @@
 {
   "console.log": {
     "prefix": "cl",
-    "body": "console.log(${1:'here'})$0"
+    "body": "console.log(`${1}`)$0"
   },
   "console.log('var', var)": {
     "prefix": "vl",
@@ -15,6 +15,19 @@
     "prefix": "debugpre",
     "description": "show debug values inside <pre>",
     "body": ["<pre>{JSON.stringify($1, null, 2)}</pre>"]
+  },
+  "function component2": {
+    "prefix": "fc2",
+    "description": "function component without file associations ",
+    "body": [
+      "export const $0 = ({$1}) => {",
+      "",
+      "\treturn(",
+      "\t\t$3",
+      "\t)",
+      "}",
+      ""
+    ]
   },
   "function component": {
     "prefix": "fc",
