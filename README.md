@@ -31,9 +31,17 @@ brew install efm-langserver
 - Remove any existing files since these will become symlinks (e.g., .zshrc, .zprofile, .tmux.config)
 - Run `./install.sh` to stow folders defined in `$STOW_FOLDERS`
 
-### Neovim using Cobalt2 Theme + Tmux
+### Cobalt2 Theme
 
-<img src="screenshot.png" alt="App Screenshot" title="App Screenshot" width="900" />
+> Working toward a common Cobalt2 theme between vscode, neovim, and iTerm.
+
+#### Neovim
+
+<img src="screenshot_nvim.png" alt="App Screenshot" title="App Screenshot" width="900" />
+
+#### VSCode
+
+<img src="screenshot_vscode.png" alt="App Screenshot" title="App Screenshot" width="900" />
 
 ### Zsh Setup
 
@@ -47,9 +55,4 @@ brew install efm-langserver
   - $ `docker run -v ~/nerd-fonts/in:/in -v ~/nerd-fonts/out:/out nerdfonts/patcher --fontawesome --octicons`
   - Font 14 (vertical spacing: 120)
 - [Cobalt Theme by Wes Bos](https://github.com/wesbos/Cobalt2-iterm)
-  - In iTerm2 access the Preferences pane on the Profiles tab.
-  - Under the Colors tab import the cobalt2.itermcolors file via the Load Presets drop-down.
-
-#### Todo
-
-- [ ] Remove
+  - In iTerm2 access the Preferences pane on the Profiles tab. Under the Colors tab import the cobalt2.itermcolors file via the Load Presets drop-down.
