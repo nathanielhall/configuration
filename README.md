@@ -1,11 +1,11 @@
 # Configuration
 
-> All the files needed to setup a new machine and synchonize dotfiles across devices.
+> My personal configuration files used to setup a new machine and synchonize dotfiles across devices.
 
 ### Setup new machine
 
-- Run `.macos.sh` to setup development environment and apply system configurations
-- Run `install.sh` to create symlinks to my dotfiles using [Stow](https://www.kabisa.nl/tech/how-to-manage-dotfiles-with-gnu-stow)
+- `.macos.sh` to install apps, setup dev environment, and apply system configurations
+- `install.sh` to create symlinks to my dotfiles using [Stow](https://www.kabisa.nl/tech/how-to-manage-dotfiles-with-gnu-stow)
 
 ### Synchronize dotfiles
 
@@ -28,7 +28,7 @@ npm install -g eslint_d
 brew install efm-langserver
 ```
 
-- Remove any existing files since these will become symlinks (e.g., .zshrc, .zprofile, .tmux.config)
+- Backup any existing configuration files (e.g., .zshrc, .zprofile, .tmux.config)
 - Run `./install.sh` to stow folders defined in `$STOW_FOLDERS`
 
 ### Cobalt2 Theme
