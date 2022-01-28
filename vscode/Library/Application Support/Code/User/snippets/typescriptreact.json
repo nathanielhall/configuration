@@ -1,4 +1,21 @@
 {
+  "console.log": {
+    "prefix": "cl",
+    "body": "console.log(`${1}`)$0"
+  },
+  "console.log('var', var)": {
+    "prefix": "vl",
+    "body": "console.log('$1', $1)$0"
+  },
+  "console.log({var})": {
+    "prefix": "ol",
+    "body": "console.log({$1})$0"
+  },
+  "debug with PRE": {
+    "prefix": "debugpre",
+    "description": "show debug values inside <pre>",
+    "body": ["<pre>{JSON.stringify($1, null, 2)}</pre>"]
+  },
   "Component": {
     "prefix": "Component",
     "description": "component",

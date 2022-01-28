@@ -12,43 +12,71 @@
     "command": "git.unstage",
     "when": "workbench.scm.active"
   },
+  {
+    "key": "ctrl+;",
+    "command": "gitlens.views.switchToBranch"
+  },
+  {
+    "key": "alt+cmd+b",
+    "command": "git.checkout"
+  },
   // =============================
-  // Terminal toggling
+  // Terminal 
   // =============================
-  //
-  {
-    "key": "ctrl+shift+f",
-    "command": "workbench.action.terminal.focus",
-    "when": "!terminalFocus"
-  },
-  {
-    "key": "ctrl+shift+l",
-    "command": "workbench.files.action.showActiveFileInExplorer"
-  },
-  {
-    "key": "cmd+n",
-    "command": "explorer.newFile"
-  },
-  {
-    "key": "ctrl+`",
-    "command": "workbench.action.toggleMaximizedPanel",
-    "when": "!terminalFocus"
-  },
-  // {
-  //   "key": "ctrl+`",
-  //   "command": "workbench.action.terminal.toggleTerminal",
-  //   "when": "terminalFocus"
-  // },
+  // TODO: close sidebar
   {
     "key": "ctrl+shift+f",
     "command": "workbench.action.terminal.toggleTerminal",
     "when": "terminalFocus"
   },
   {
+    "key": "ctrl+shift+f",
+    "command": "workbench.action.terminal.focus",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "ctrl+`",
+    "command": "workbench.action.toggleMaximizedPanel",
+    "when": "!terminalFocus"
+  },
+  {
     "key": "ctrl+alt+m",
     "command": "-workbench.action.terminal.toggleTerminal",
     "when": "!terminalFocus"
   },
+  {
+    "key": "ctrl+alt+t",
+    "command": "workbench.action.togglePanelPosition"
+  },
+  {
+    "key": "ctrl+shift+left",
+    "command": "workbench.action.positionPanelLeft"
+  },
+  {
+    "key": "ctrl+shift+right",
+    "command": "workbench.action.positionPanelRight"
+  },
+  {
+    "key": "ctrl+shift+down",
+    "command": "workbench.action.positionPanelBottom"
+  },
+  // {
+  //   "key": "ctrl+shift+f",
+  //   "command": "extension.multiCommand.execute",
+  //   "args": {
+  //     "sequence": [
+  //       "workbench.action.terminal.focus",
+  //       "workbench.action.toggleSidebarVisibility"
+  //     ]
+  //   },
+  //   "when": "!terminalFocus"
+  // },
+  
+  // {
+  //   "key": "ctrl+`",
+  //   "command": "workbench.action.terminal.toggleTerminal",
+  //   "when": "terminalFocus"
+  // },
 
   // =============================
   //           Sidebar
@@ -79,37 +107,38 @@
     "command": "workbench.action.toggleSidebarVisibility",
     "when": "sideBarFocus"
   },
-
-  // Toggle Activity Bar
   {
     "key": "ctrl+shift+d",
     "command": "workbench.action.toggleActivityBarVisibility"
   },
-  {
-    "key": "ctrl+alt+t",
-    "command": "workbench.action.togglePanelPosition"
-  },
-  {
-    "key": "ctrl+shift+left",
-    "command": "workbench.action.positionPanelLeft"
-  },
-  {
-    "key": "ctrl+shift+right",
-    "command": "workbench.action.positionPanelRight"
-  },
-  {
-    "key": "ctrl+shift+down",
-    "command": "workbench.action.positionPanelBottom"
-  },
-  //  ==============================================================
-  // tmux like window keybindings
-  // ==============================================================
 
+
+  // TODO: Move editor groups, swap, etc
+  // alt+cmd+0 --> toggle layout vert/horz
+
+  // ====================================================
+  // LSP-Like Commands
+  // ====================================================
+  {
+    "key": "alt+n",
+    "command": "explorer.newFolder"
+  },
+  {
+    "key": "cmd+n",
+    "command": "explorer.newFile"
+  },
+  {
+    "key": "ctrl+shift+l",
+    "command": "workbench.files.action.showActiveFileInExplorer"
+  },
+
+  //  ==============================================================
+  // Navigation
+  // ==============================================================
   {
     "key": "cmd+\\",
     "command": "-workbench.action.splitEditor"
   },
-
   // Replace ctrl+tab with a smaller hand stretch using ctrl+n
   {
     "key": "ctrl+n",
@@ -129,13 +158,56 @@
     "command": "-workbench.action.quickOpenNavigateNextInEditorPicker",
     "when": "inEditorsPicker && inQuickOpen"
   },
+  // Moving editor groups --------------------
   {
-    "key": "ctrl+;",
-    "command": "gitlens.views.switchToBranch"
+    "key": "cmd+h",
+    "command": "-testing.toggleTestingPeekHistory",
+    "when": "testing.isPeekVisible"
+  },
+  {
+    "key": "cmd+h",
+    "command": "workbench.action.moveActiveEditorGroupLeft"
+  },
+  {
+    "key": "cmd+k left",
+    "command": "-workbench.action.moveActiveEditorGroupLeft"
+  },
+  {
+    "key": "cmd+l",
+    "command": "workbench.action.moveActiveEditorGroupRight"
+  },
+  {
+    "key": "cmd+k right",
+    "command": "-workbench.action.moveActiveEditorGroupRight"
   },
   {
     "key": "cmd+k",
-    "command": "editor.action.showDefinitionPreviewHover",
-    "when": "!terminalFocus && editorFocus"
-  }
+    "command": "-workbench.action.terminal.clear",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "cmd+k",
+    "command": "workbench.action.moveActiveEditorGroupUp"
+  },
+  {
+    "key": "cmd+k up",
+    "command": "-workbench.action.moveActiveEditorGroupUp"
+  },
+  {
+    "key": "cmd+j",
+    "command": "-workbench.action.togglePanel"
+  },
+  {
+    "key": "cmd+j",
+    "command": "workbench.action.moveActiveEditorGroupDown"
+  },
+  {
+    "key": "cmd+k down",
+    "command": "-workbench.action.moveActiveEditorGroupDown"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "-deleteAllRight",
+    "when": "textInputFocus && !editorReadonly"
+  },
 ]
