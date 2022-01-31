@@ -306,6 +306,7 @@
   "gitlens.views.branches.branches.layout": "list",
   "breadcrumbs.enabled": false,
   "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
   // "redhat.telemetry.enabled": false,
   // "security.workspace.trust.untrustedFiles": "open"
 }

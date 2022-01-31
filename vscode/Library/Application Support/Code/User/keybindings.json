@@ -117,8 +117,10 @@
   // alt+cmd+0 --> toggle layout vert/horz
 
   // ====================================================
-  // LSP-Like Commands
+  // File Explorer
   // ====================================================
+
+  // Delete File/folder = ctrl+alt + backspace
   {
     "key": "alt+n",
     "command": "explorer.newFolder"
@@ -135,6 +137,7 @@
   //  ==============================================================
   // Navigation
   // ==============================================================
+
   {
     "key": "cmd+\\",
     "command": "-workbench.action.splitEditor"
