@@ -43,6 +43,9 @@ brew install efm-langserver
 
 <img src="screenshot_vscode.png" alt="App Screenshot" title="App Screenshot" width="900" />
 
+### Enabling italics in Terminal
+- [Enabling italics in Vim and tmux](https://rsapkf.xyz/weblog/enabling-italics-vim-tmux)
+
 ### Zsh Setup
 
 - zsh-autosuggestions

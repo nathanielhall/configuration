@@ -1,4 +1,5 @@
-let g:my_colorscheme = 'gruvbox'
+let g:my_colorscheme = 'cobalt2'
+"let g:my_colorscheme = 'gruvbox'
 
 fun! ColorMyPencils()
     let g:gruvbox_contrast_dark = 'hard'
@@ -19,6 +20,17 @@ fun! ColorMyPencils()
     else
         exe 'colorscheme' g:my_colorscheme
     endif
+    "
+    hi! tsxFunction guifg=#EE80E1
+    hi! tsFunction  guifg=#EE80E1
+
+    "let g:light_pink = "EE80E1"
+    "call s:X("tsFunction",g:light_pink,"","","","")
+    "call s:X("tsxFunction",#EE80E1,"","","","")
+
+    "hi! tsxFuncCall guifg=#FFC600
+    "hi! tsxOperator guifg=#FF9D00
+    "hi! tsxFuncArgs guifg=#CCCCCC
 
     highlight ColorColumn ctermbg=0 guibg=grey
     hi SignColumn guibg=none
@@ -57,10 +69,22 @@ fun! ColorMyPencils()
     hi! jsxCloseTag guifg=#e1efff
     hi! jsxCloseString guifg=#e1efff
 
-    "" Javascript"
-    hi! jsObjectKey guifg=#9effff
+    """ TypeScript 
+    hi! tsxComponentName guifg=#80ffbb
+    hi! tsxBraces  guifg=#9effff
+    hi! tsxTagName guifg=#9EFFFF
+    hi! tsxAttrib guifg=#FFC600 gui=italic
+    hi! tsxEqual guifg=#FFC600
+    hi! tsxOpenPunct guifg=#e1efff
+    hi! tsxClosePunct guifg=#e1efff
+    hi! tsxCloseTag guifg=#e1efff
+    hi! tsxCloseString guifg=#e1efff
 
-    "" jsDoc Colors
+    """ Javascript"
+    hi! jsObjectKey guifg=#9effff
+    hi! tsObjectKey guifg=#9effff
+
+    """ jsDoc Colors
     hi! jsDocType guifg=#ffc600 gui=italic
     hi! jsDocTypeBrackets guifg=#e1efff gui=italic
     hi! jsDocTags guifg=#ff9d00 gui=italic

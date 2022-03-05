@@ -37,6 +37,7 @@ Plug 'windwp/nvim-autopairs'
 
 " Themes
 Plug 'gruvbox-community/gruvbox'
+Plug 'gertjanreynaert/cobalt2-vim-theme'
 
 " File Management
 Plug 'nvim-lua/popup.nvim'
@@ -45,16 +46,9 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'  
 
 " javascript / jsx
-"Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
-
 Plug 'pangloss/vim-javascript'
-"Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
-
- "typescript / jsx
-"Plug 'leafgarland/typescript-vim'
-"Plug 'peitalin/vim-jsx-typescript'
 
 " Status Bar
 Plug 'vim-airline/vim-airline'
@@ -75,9 +69,6 @@ Plug 'theprimeagen/vim-be-good'
 Plug 'jose-elias-alvarez/nvim-lsp-ts-utils', {'branch': 'main'}
 
 call plug#end()
-
-
-"colorscheme gruvbox
 
 
 let mapleader = " "

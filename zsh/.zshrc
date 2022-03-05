@@ -2,7 +2,8 @@
 #                    ZSHRC 
 # ##############################################
 #
-export TERM=xterm-256color
+# export TERM=xterm-256color
+export TERM=xterm-256color-italic
 export CLICOLOR=1
 #export LSCOLORS=FafacxdxbxegedabagacaD
 export EDITOR=nvim
