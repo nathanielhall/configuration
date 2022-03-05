@@ -37,8 +37,6 @@ Plug 'windwp/nvim-autopairs'
 
 " Themes
 Plug 'gruvbox-community/gruvbox'
-"Plug 'herrbischoff/cobalt2.vim'
-Plug 'gertjanreynaert/cobalt2-vim-theme'
 
 " File Management
 Plug 'nvim-lua/popup.nvim'
@@ -79,7 +77,7 @@ Plug 'jose-elias-alvarez/nvim-lsp-ts-utils', {'branch': 'main'}
 call plug#end()
 
 
-colorscheme cobalt2
+"colorscheme gruvbox
 
 
 let mapleader = " "
