@@ -14,6 +14,8 @@ export STOW_FOLDERS="nvim, tmux, vim, zsh"
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+bindkey -s ^f "tmux-sessionizer\n"
+
 
 
 # ##############################################
