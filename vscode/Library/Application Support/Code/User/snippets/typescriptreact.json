@@ -31,7 +31,7 @@
     ]
   },
   "Component:return": {
-    "prefix": "Component:return",
+    "prefix": "FC",
     "description": "component with return",
     "body": [
       "import React, { FC } from 'react'",

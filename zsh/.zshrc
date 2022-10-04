@@ -141,6 +141,21 @@ alias deleteDSFiles="find . -name '.DS_Store' -type f -delete"
 
 alias v="nvim"
 
+
+## docker aliases
+alias dc="docker-compose"
+alias dcup="docker-compose up"
+alias dcb='docker-compose build'
+alias dcdn='docker-compose down'
+alias dce='docker-compose exec'
+alias dcl='docker-compose logs'
+alias dclf='docker-compose logs -f'
+alias dcp='docker-compose pull'
+alias dcr="docker-compose run"
+alias dcrestart="docker-compose restart"
+alias dcstop="docker-compose stop"
+
+
 ## git aliases
 function gc { git commit -m "$@"; }
 alias gs="git status";

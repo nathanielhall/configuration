@@ -36,18 +36,9 @@
     "**/.DS_Store": true
   },
 
-  /** VIM */
-  // TODO:
-  // - toggle group
-  // - move text block using j k
-  // - move panes / swap panes
-  // - file history
-  // - search for highlighted characters
-
+  /**       VIM      */
   "vim.leader": "<space>",
   "vim.surround": true,
-  // "vim.sneak": true,
-  // "vim.easymotion": true,
 
   "vim.insertModeKeyBindings": [
     {
@@ -235,7 +226,8 @@
   ],
   "editor.lineNumbers": "relative",
 
-  /** TODO Highlight */
+
+  /**    TODO Highlight       */
   "todohighlight.exclude": [
     "**/node_modules/**",
     "**/bower_components/**",
@@ -250,7 +242,6 @@
     "**/vendor/**",
     "**/public/**"
   ],
-
   "todohighlight.keywords": [
     {
       "text": "QUESTION:",
@@ -263,7 +254,7 @@
     }
   ],
 
-  /** Git Lens */
+  /**       Git Lens         */
   "gitlens.currentLine.enabled": false,
   "gitlens.hovers.currentLine.over": "line",
   "gitlens.codeLens.enabled": false,
@@ -284,15 +275,17 @@
     "**/.build": true
   },
 
-  /** =============================================*/
-  /** Formatting */
+  /**     Formatting       */
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
   "eslint.alwaysShowStatus": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll": true
-    // "source.fixAll.eslint": true
+    "source.fixAll": true,
+    "source.fixAll.eslint": true
   },
-  /** =============================================*/
+  "ruby.useLanguageServer": true,
 
   "git.ignoreLegacyWarning": true,
   "gitlens.advanced.messages": {
@@ -307,6 +300,18 @@
   "breadcrumbs.enabled": false,
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
+
+  /**       Markdown       */
+  "markdown-preview-github-styles.colorTheme": "light",
+  
+  /** golang  */
+  "[go]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "golang.go"
+  },
+  "gopls": { "ui.semanticTokens": true }
+
+  // "markdown-preview-github-styles.colorTheme": "dark",
   // "redhat.telemetry.enabled": false,
   // "security.workspace.trust.untrustedFiles": "open"
 }
