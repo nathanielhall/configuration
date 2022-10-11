@@ -22,6 +22,8 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
+keymap("n", ",w", "<C-w>", opts)
+
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
@@ -33,6 +35,9 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 
+keymap("n", "<leader>=", ":vertical resize +5<CR>", opts)
+keymap("n", "<leader>-", ":vertical resize -5<CR>", opts)
+-- noremap <Leader>rp :resize 100<CR>
 
 keymap("n", "<leader><CR>", ":w<CR>", opts)
 
@@ -63,6 +68,7 @@ keymap("n", "<S-l>", "$", opts)
 keymap("n", "<S-h>", "^", opts)
 
 -- file exe permissions
+
 keymap("n", "<leader>x", ":!chmod +x %<CR>", opts)
 
 -- Tmux
@@ -70,19 +76,17 @@ keymap("n", "<C-f>", ":silent !tmux neww tmux-sessionizer<CR>", opts)
 -- nnoremap <silent> <C-f> :silent !tmux neww tmux-sessionizer<CR>
 
 -- Plugins --
-
 -- NvimTree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
-keymap("n", "<leader>z", ":NvimTreeFindFile<CR>", opts)
+-- keymap("n", "<leader>z", ":NvimTreeFindFile<CR>", opts)
+keymap("n", "<C-S>l", ":NvimTreeFindFile<CR>", opts)
 
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
-
--- keymap("n", "<C-n>", ":Telescope buffers<CR>", opts)
--- nnoremap <C-n> :lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown({previewer=false}))<cr>
+keymap("n", "<C-n>", "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown({previewer=false}))<CR>", opts)
 
 -- Git
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
