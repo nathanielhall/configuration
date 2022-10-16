@@ -128,7 +128,7 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 alias code="\"/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code\""
 function c { code ${@:-.} }
 
-alias ll="ls -1a";
+alias ll="ls -la";
 alias ..="cd ../";
 alias ..l="cd ../ && ll";
 alias vz="vim ~/.zshrc";
