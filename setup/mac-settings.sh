@@ -1,9 +1,7 @@
+
 #!/usr/bin/env bash
 
 # ~/.macos — https://mths.be/macos
-
-# This is a work in progres....
-
 
 # Close any open System Preferences panes, to prevent them from overriding
 # settings we’re about to change
@@ -14,64 +12,8 @@ sudo -v
 
 # Keep-alive: update existing `sudo` time stamp until `.macos` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-###############################################################################
-# My Customizations 
-###############################################################################
-echo "Starting setup for $(whoami)"
 
-echo "making code directory"
-mkdir -p "${HOME}/code"
-
-# xcode-select install here?
-
-echo "installing Homebrew"
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-
-echo "brew install git & node/npm"
-brew install git node 
-
-echo "installing apps with brew cask"
-brew install --cask alfred google-chrome visual-studio-code slack spectacle postman iterm2 docker
-
-echo "install fonts"
-brew tap homebrew/cask-fonts
-brew install --cask font-fira-code
-
-# TODO: how to add Dank Mono here?
-
-echo "setup development environment"
-brew install tmux neovim stow lazygit
-
-
-# echo "Generating an RSA token for GitHub"
-# mkdir -p ~/.ssh
-# touch ~/.ssh/config
-# ssh-keygen -t rsa -b 4096 -C "nathaniel.hall@gmail.com"
-# echo "Host *\n AddKeysToAgent yes\n UseKeychain yes\n IdentityFile ~/.ssh/id_rsa" | tee ~/.ssh/config
-# eval "$(ssh-agent -s)"
-# echo "run 'pbcopy < ~/.ssh/id_rsa.pub' and paste that into GitHub"
-
-echo "cloning configuration files"
-git clone git@github.com:nathanielhall/configuration.git "${HOME}/configuration"
-
-echo "cloning Cobalt2 theme for iTerm"
-git clone https://github.com/wesbos/Cobalt2-iterm ~/.zsh/Cobalt2-iterm
-
-echo "cloning zsh-autosuggestions"
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
-
-echo "installing language servers for Neovim (Neovim LSP)"
-npm i -g typescript typescript-language-server
-npm install -g eslint_d
-# brew install efm-langserver
-gem install solargraph  
-# TODO: there is more to put here
-
-###############################################################################
-###############################################################################
-###############################################################################
-echo "making system modifications:"
+echo "Apply Macbook system settings for $(whoami)"
 
 # Make Chrome Two finger swipe for back and forward
 defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool TRUE

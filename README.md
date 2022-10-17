@@ -1,47 +1,17 @@
 # Configuration
+> My personal configuration files
 
-> My personal configuration files used to setup a new machine and synchonize dotfiles across devices.
+## Setup files 
+- `./setup/mac-settings.sh` to apply system settings for my Macbook
+- `./setup/mac-installs.sh` to install required apps using homebrew
+- `./setup/dev.sh` to setup development environment
+- `sync.sh` create symlinks using stow. This will synchonize the configuration project with home directory.
+- `sync-remove.sh` to remove symlinks previously created for this project.
 
-### Setup new machine
-
-- `.macos.sh` to install apps, setup dev environment, and apply system configurations
-- `install.sh` to create symlinks to my dotfiles using [Stow](https://www.kabisa.nl/tech/how-to-manage-dotfiles-with-gnu-stow)
-
-### Synchronize dotfiles
-
-- All dotfiles are located here, `${HOME}/configuration`
-- Push changes, and pull from other devices
-
-### Setup Dotfiles only
-
-> files for Neovim, Tmux, Zsh, and VSCode
-
-```
-brew install neovim tmux stow
-
-git clone git@github.com:nathanielhall/configuration.git "${HOME}/configuration"
-
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
-
-npm i -g typescript typescript-language-server
-npm install -g eslint_d
-brew install efm-langserver
-```
-
-- Backup any existing configuration files (e.g., .zshrc, .zprofile, .tmux.config)
-- Run `./install.sh` to stow folders defined in `$STOW_FOLDERS`
-
-### Cobalt2 Theme
-
-> Working toward a common Cobalt2 theme between vscode, neovim, and iTerm.
-
-#### Neovim
-
-<img src="screenshot_nvim.png" alt="App Screenshot" title="App Screenshot" width="900" />
-
-#### VSCode
-
-<img src="screenshot_vscode.png" alt="App Screenshot" title="App Screenshot" width="900" />
+The 'sync-*.sh' files have dependency on the following environment variables. 
+- DOTFILES=$HOME/configuration
+- ZDOTDIR=$HOME
+- STOW_FOLDERS="nvim, tmux, vim, zsh"
 
 ### Enabling italics in Terminal
 - [Enabling italics in Vim and tmux](https://rsapkf.xyz/weblog/enabling-italics-vim-tmux)

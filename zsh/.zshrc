@@ -141,6 +141,7 @@ alias deleteDSFiles="find . -name '.DS_Store' -type f -delete"
 
 alias v="nvim"
 
+alias lg="lazygit"
 
 ## docker aliases
 alias dc="docker-compose"
