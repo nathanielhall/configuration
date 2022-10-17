@@ -20,4 +20,3 @@ null_ls.setup {
     formatting.gofmt,
   },
 }
-
