@@ -15,6 +15,7 @@
   "editor.minimap.enabled": false,
 
   "workbench.colorTheme": "Cobalt2",
+  // "workbench.colorTheme": "Gruvbox Dark Medium",
   "workbench.sideBar.location": "right",
   "workbench.settings.useSplitJSON": false,
   "workbench.settings.editor": "json", // always show json view
@@ -309,7 +310,10 @@
     "editor.formatOnSave": false,
     "editor.defaultFormatter": "golang.go"
   },
-  "gopls": { "ui.semanticTokens": true }
+  "gopls": {
+    "ui.semanticTokens": true
+  },
+  "workbench.editor.enablePreview": false
 
   // "markdown-preview-github-styles.colorTheme": "dark",
   // "redhat.telemetry.enabled": false,
