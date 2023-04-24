@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# TODO: Manual Setting Changes
+# Still must apply these manually....
 # - Displays -> Set external monitor on right
 # - Mouse - Set Tracking speed
 # - Keyboard 
@@ -13,7 +13,7 @@
 
 
 ###############################################################################
-# This script applies only the essential settings
+# This script applies my preferred macos defaults
 # Last updated 2023-04-21
 
 # Resources
