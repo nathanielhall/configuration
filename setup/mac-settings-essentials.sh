@@ -1,8 +1,24 @@
 #!/usr/bin/env bash
 
+# TODO: Manual Setting Changes
+# - Displays -> Set external monitor on right
+# - Mouse - Set Tracking speed
+# - Keyboard 
+#    - Text Input -> Add Dvorak
+#    - Shortcuts -> Mission Control -> Switch to Desktop 1-5 (cmd1-5)
+# - Setup Desktops
+#    - Accessibility - Display: Reduce Motion
+#    - Enable shortcuts - Keyboard - Shortcuts - Mission Control
+# - Pin certain Apps
+
+
 ###############################################################################
 # This script applies only the essential settings
 # Last updated 2023-04-21
+
+# Resources
+# https://macos-defaults.com/
+# https://github.com/mathiasbynens/dotfiles/blob/main/.macos
 ###############################################################################
 
 # Close any open System Preferences panes, to prevent them from overriding
