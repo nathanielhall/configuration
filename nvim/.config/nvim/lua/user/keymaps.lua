@@ -25,7 +25,7 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", ",w", "<C-w>", opts)
 
 ---------------------------------------------------
--- Resize 
+-- Resize
 keymap("n", "<leader>=", ":vertical resize +5<CR>", opts)
 keymap("n", "<leader>-", ":vertical resize -5<CR>", opts)
 -- noremap <Leader>rp :resize 100<CR>
@@ -88,7 +88,8 @@ keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
-keymap("n", "<C-n>", "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown({previewer=false}))<CR>", opts)
+keymap("n", "<C-n>",
+  "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown({previewer=false}))<CR>", opts)
 
 -- Git
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
@@ -110,4 +111,3 @@ keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 
 
 keymap("n", "<leader>f", ":Format<cr>", opts)
-

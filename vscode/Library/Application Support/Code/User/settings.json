@@ -8,7 +8,7 @@
   // "editor.wordBasedSuggestions": false,
   "editor.suggest.localityBonus": true,
   "editor.acceptSuggestionOnCommitCharacter": false,
-  "editor.lightbulb.enabled": false,
+  "editor.lightbulb.enabled": "off",
   "editor.glyphMargin": false,
   "editor.snippetSuggestions": "top",
   "editor.fontLigatures": true,
@@ -227,7 +227,6 @@
   ],
   "editor.lineNumbers": "relative",
 
-
   /**    TODO Highlight       */
   "todohighlight.exclude": [
     "**/node_modules/**",
@@ -281,10 +280,13 @@
   "[rust]": {
     "editor.defaultFormatter": "rust-lang.rust-analyzer"
   },
+  "[csharp]": {
+    "editor.defaultFormatter": "ms-dotnettools.csharp"
+  },
   "eslint.alwaysShowStatus": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll": true,
-    "source.fixAll.eslint": true
+    "source.fixAll": "explicit",
+    "source.fixAll.eslint": "explicit"
   },
   "ruby.useLanguageServer": true,
 
@@ -296,7 +298,7 @@
   "editor.insertSpaces": false,
   // "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
   "editor.wordWrap": "off",
-  "workbench.editor.showTabs": false,
+  "workbench.editor.showTabs": "single",
   "gitlens.views.branches.branches.layout": "list",
   "breadcrumbs.enabled": false,
   "explorer.confirmDelete": false,
@@ -304,7 +306,7 @@
 
   /**       Markdown       */
   "markdown-preview-github-styles.colorTheme": "light",
-  
+
   /** golang  */
   "[go]": {
     "editor.formatOnSave": false,
@@ -313,9 +315,40 @@
   "gopls": {
     "ui.semanticTokens": true
   },
-  "workbench.editor.enablePreview": false
+  "workbench.editor.enablePreview": false,
+  "editor.inlayHints.enabled": "offUnlessPressed",
+  "[ruby]": {
+    "editor.defaultFormatter": "rebornix.ruby",
+    "editor.formatOnSave": true,
+  },
+  "solargraph.formatting": true,
+  "solargraph.autoformat": true,
+  "[jsonc]": {
+    "editor.defaultFormatter": "denoland.vscode-deno"
+  },
+  "go.toolsManagement.autoUpdate": true,
+  "cloudcode.autoDependencies": "off",
+  "cloudcode.enableMinikubeGcpAuthPlugin": false,
+  "cloudcode.project": "brave-watch-359722",
+  "geminicodeassist.project": "",
+  "google.cloud.project": "minecraft-416011",
+  "jupyter.runStartupCommands": [
+    "import bigframes",
+    "%load_ext bigframes",
+    "bigframes.options.bigquery.project = \"minecraft-416011\"",
+    "bigframes.options.bigquery.application_name = \"datacloud.visual studio code\""
+  ],
+  "google.cloud.region": "us-east1",
+  "jupyter.jupyterLaunchTimeout": 300000,
 
   // "markdown-preview-github-styles.colorTheme": "dark",
   // "redhat.telemetry.enabled": false,
   // "security.workspace.trust.untrustedFiles": "open"
+  // "ruby.rubocop.onSave": true,
+  // "editor.formatOnSaveTimeout": 5000,
+  // "editor.formatOnSave": true,
+  // "ruby.format": "rubocop",
+  // "files.associations": {
+  //   "*.erb": "erb"
+  // }
 }

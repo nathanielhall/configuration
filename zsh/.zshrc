@@ -171,6 +171,13 @@ cdiff() { code --diff "$1" "$2"; }
 ## npm aliases
 alias rmn="rm -rf node_modules";
 
+## Kubernetes
+alias k="kubectl"
+alias mk="minikube"
+
+## gcloud 
+alias gc="gcloud"
+
 
 # Custom functions
 mg () { mkdir "$@" && cd "$@" || exit; }
@@ -186,3 +193,10 @@ function quit () {
 }
 
 # ##############################################
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
+
+# Added by Antigravity IDE
+export PATH="/Users/nathanielhall/.antigravity-ide/antigravity-ide/bin:$PATH"
